@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_03_202245) do
+ActiveRecord::Schema.define(version: 2023_02_03_202632) do
 
   create_table "bodyparts", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "bones", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "url"
+    t.integer "region_id"
   end
 
   create_table "muscles", force: :cascade do |t|
