@@ -163,7 +163,7 @@ back_muscles = [
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/erector-spinae.jpg"
     },    
     {
-        name: "latissimus dorsi	",
+        name: "latissimus dorsi",
         origin: "vertebral spines from T7 to the sacrum, posterior third of the iliac crest, lower 3 or 4 ribs, sometimes from the inferior angle of the scapula",
         insertion: "floor of the intertubercular groove of humerus",
         action: "extends the arm and rotates the arm medially",
