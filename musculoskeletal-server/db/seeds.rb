@@ -6,7 +6,7 @@ Muscle.destroy_all
 Bone.destroy_all
 
 bodyparts = [
-    {name: "Shoulder and Rotator Cuff"},
+    {name: "Shoulder"},
     {name: "Chest"},
     {name: "Back"},
     {name: "Arms"},
@@ -57,7 +57,7 @@ shoulder_muscles = [
         insertion: "deltoid tuberosity of the humerus",
         action: "abducts arm; anterior fibers flex & medially rotate the arm; posterior fibers extend & laterally rotate the arm",
         innervation: "axillary nerve (C5,6)",
-        blood_supply: "posterior circumflex humeral a."
+        blood_supply: "posterior circumflex humeral a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/deltoid-muscle.jpg"
     },
     {
@@ -66,7 +66,7 @@ shoulder_muscles = [
         insertion: "lesser tubercle of the humerus",
         action: "medially rotates the arm; assists extention of the arm",
         innervation: "upper and lower subscapular nerves (C5,6)",
-        blood_supply: "subscapular a."
+        blood_supply: "subscapular a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/subscapular.jpg"
     },
     {
@@ -75,7 +75,7 @@ shoulder_muscles = [
         insertion: "greater tubercle of the humerus",
         action: "abducts the arm (initiates abduction)",
         innervation: "suprascapular nerve (C5,6) ",
-        blood_supply: "suprascapular a."
+        blood_supply: "suprascapular a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/supraspinatus-muscle.jpg"
     },
     {
@@ -84,7 +84,7 @@ shoulder_muscles = [
         insertion: "greater tubercle of the humerus",
         action: "laterally rotates the arm",
         innervation: "axillary nerve (C5,6)",
-        blood_supply: "circumflex scapular a."
+        blood_supply: "circumflex scapular a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/teres-minor.jpg"
     },    {
         name: "infraspinatus",
@@ -92,7 +92,7 @@ shoulder_muscles = [
         insertion: "greater tubercle of the humerus",
         action: "laterally rotates the arm",
         innervation: "suprascapular nerve",
-        blood_supply: "suprascapular a."
+        blood_supply: "suprascapular a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/infraspinatus-muscle.jpg"
     }
 ]
@@ -117,7 +117,7 @@ chest_muscles = [
         insertion: "greater tubercle of the humerus",
         action: "flexes and adducts the arm, medially rotates the arm",
         innervation: "medial and lateral pectoral nerves (C5-T1)",
-        blood_supply: "pectoral branch of the thoracoacromial trunk"
+        blood_supply: "pectoral branch of the thoracoacromial trunk",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/pectoralis-major.jpg"
     },    
     {
@@ -126,7 +126,7 @@ chest_muscles = [
         insertion: "coracoid process of the scapula",
         action: "draws the scapula forward, medialward, and downward",
         innervation: "medial pectoral nerve (C8, T1)",
-        blood_supply: "pectoral branch of the thoracoacromial trunk"
+        blood_supply: "pectoral branch of the thoracoacromial trunk",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/pectoralis-minor.jpg"
     },    {
         name: "coracobrachialis",
@@ -134,7 +134,7 @@ chest_muscles = [
         insertion: "medial side of the humerus at mid-shaft",
         action: "flexes and adducts the arm",
         innervation: "musculocutaneous nerve (C5,6)",
-        blood_supply: "brachial a."
+        blood_supply: "brachial a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/coracobrachialis.jpg"
     }
 ]
@@ -159,7 +159,7 @@ back_muscles = [
         insertion: "angles of the ribs, transverse and spinous processes of vertebrae, posterior aspect of the skull",
         action: "extends and laterally bends the trunk, neck and head",
         innervation: "segmentally innervated by dorsal primary rami of spinal nerves C1-S5",
-        blood_supply: "supplied segmentally by: deep cervical a., posterior intercostal aa., subcostal aa., lumbar aa."
+        blood_supply: "supplied segmentally by: deep cervical a., posterior intercostal aa., subcostal aa., lumbar aa.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/erector-spinae.jpg"
     },    
     {
@@ -168,7 +168,7 @@ back_muscles = [
         insertion: "floor of the intertubercular groove of humerus",
         action: "extends the arm and rotates the arm medially",
         innervation: "thoracodorsal nerve (C7,8)",
-        blood_supply: "thoracodorsal a."
+        blood_supply: "thoracodorsal a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/latissimus-dorsi.jpg"
     },
     {
@@ -177,7 +177,7 @@ back_muscles = [
         insertion: "medial border of the scapula inferior to the spine of the scapula",
         action: "retracts, elevates and rotates the scapula inferiorly",
         innervation: "dorsal scapular nerve (C5)",
-        blood_supply: "dorsal scapular a."
+        blood_supply: "dorsal scapular a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/greater-rhomboid.jpg"
     },    
     {
@@ -186,7 +186,7 @@ back_muscles = [
         insertion: "medial border of the scapula at the root of the spine of the scapula",
         action: "retracts, elevates and rotates the scapula inferiorly",
         innervation: "dorsal scapular nerve (C5)",
-        blood_supply: "dorsal scapular a."
+        blood_supply: "dorsal scapular a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/lesser-rhomboid.jpg"
     },
     {
@@ -195,7 +195,7 @@ back_muscles = [
         insertion: "medial border of the scapula on its costal (deep) surface",
         action: "it draws the scapula forward; the inferior fibers rotate the scapula superiorly",
         innervation: "long thoracic nerve ",
-        blood_supply: "lateral thoracic a."
+        blood_supply: "lateral thoracic a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/serratus-anterior.jpg"
     },    
     {
@@ -204,7 +204,7 @@ back_muscles = [
         insertion: "lateral third of the clavicle, medial side of the acromion and the upper crest of the scapular spine, tubercle of the scapular spine",
         action: "elevates and depresses the scapula; rotates the scapula superiorly; retracts scapula",
         innervation: "spinal accessory (XI)",
-        blood_supply: "transverse cervical a."
+        blood_supply: "transverse cervical a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/trapezius.jpg"
     },
     {
@@ -213,7 +213,7 @@ back_muscles = [
         insertion: "crest of the lesser tubercle of the humerus",
         action: "adducts the arm, medially rotates the arm, assists in arm extension",
         innervation: "lower subscapular nerve (C5,6)",
-        blood_supply: "circumflex scapular a."
+        blood_supply: "circumflex scapular a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/teres-major.jpg"
     }
 ]
@@ -238,7 +238,7 @@ arms_muscles = [
         insertion: "tuberosity of the radius",
         action: "flexes the forearm, flexes arm (long head), supinates",
         innervation: "musculocutaneous nerve (C5,6)",
-        blood_supply: "brachial a."
+        blood_supply: "brachial a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/biceps-brachii.jpg"
     },   
     {
@@ -247,7 +247,7 @@ arms_muscles = [
         insertion: "coronoid process of the ulna",
         action: "flexes the forearm",
         innervation: "musculocutaneous nerve (C5,6)",
-        blood_supply: "brachial a., radial recurrent a."
+        blood_supply: "brachial a., radial recurrent a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/brachialis.jpg"
     },   
     {
@@ -256,7 +256,7 @@ arms_muscles = [
         insertion: "lateral side of the base of the styloid process of the radius",
         action: "flexes the elbow, assists in pronation & supination",
         innervation: "radial nerve",
-        blood_supply: "radial recurrent a."
+        blood_supply: "radial recurrent a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/brachioradialis.jpg"
     },   
     {
@@ -265,7 +265,7 @@ arms_muscles = [
         insertion: "olecranon process of the ulna",
         action: "extends the forearm; the long head extends and adducts arm",
         innervation: "radial nerve",
-        blood_supply: "deep brachial (profunda brachii) a."
+        blood_supply: "deep brachial (profunda brachii) a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/triceps-brachii.jpg"
     }
 ]
@@ -290,7 +290,7 @@ abdominals_muscles = [
         insertion: "linea alba, pubic crest & tubercle, anterior superior iliac spine & anterior half of iliac crest",
         action: "flexes and laterally bends the trunk",
         innervation: "intercostal nerves 7-11, subcostal, iliohypogastric and ilioinguinal nerves",
-        blood_supply: "musculophrenic a., superior epigastric a., intercostal aa. 7-11, subcostal a., lumbar aa., superficial circumflex iliac a., deep circumflex iliac a., superficial epigastric a., inferior epigastric a., superficial external pudendal a."
+        blood_supply: "musculophrenic a., superior epigastric a., intercostal aa. 7-11, subcostal a., lumbar aa., superficial circumflex iliac a., deep circumflex iliac a., superficial epigastric a., inferior epigastric a., superficial external pudendal a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles-thumbnails/external-oblique.jpg"
     },   
     {
@@ -299,7 +299,7 @@ abdominals_muscles = [
         insertion: "lower 3 or 4 ribs, linea alba, pubic crest",
         action: "flexes and laterally bends the trunk",
         innervation: "intercostal nerves 7-11, subcostal, iliohypogastric and ilioinguinal nerves",
-        blood_supply: "musculophrenic a., superior epigastric a., intercostal aa. 7-11, subcostal a., lumbar aa., superficial circumflex iliac a., deep circumflex iliac a., superficial epigastric a., inferior epigastric a., superficial external pudendal a."
+        blood_supply: "musculophrenic a., superior epigastric a., intercostal aa. 7-11, subcostal a., lumbar aa., superficial circumflex iliac a., deep circumflex iliac a., superficial epigastric a., inferior epigastric a., superficial external pudendal a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles-thumbnails/internal-oblique.jpg"
     },   
     {
@@ -308,7 +308,7 @@ abdominals_muscles = [
         insertion: "xiphoid process of the sternum and costal cartilages 5-7",
         action: "flexes the trunk",
         innervation: "intercostal nerves 7-11 and subcostal nerve",
-        blood_supply: "superior epigastric a. intercostal aa., subcostal a., inferior epigastric a."
+        blood_supply: "superior epigastric a. intercostal aa., subcostal a., inferior epigastric a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles-thumbnails/rectus-abdominus.jpg"
     },   
     {
@@ -317,12 +317,12 @@ abdominals_muscles = [
         insertion: "linea alba, pubic crest and pecten of the pubis",
         action: "flexes and laterally bends trunk",
         innervation: "intercostal nerves 7-11, subcostal, iliohypogastric and ilioinguinal nerves",
-        blood_supply: "musculophrenic a., superior epigastric a., intercostal aa. 7-11, subcostal a., lumbar aa., superficial circumflex iliac a., deep circumflex iliac a., superficial epigastric a., inferior epigastric a., superficial external pudendal a."
+        blood_supply: "musculophrenic a., superior epigastric a., intercostal aa. 7-11, subcostal a., lumbar aa., superficial circumflex iliac a., deep circumflex iliac a., superficial epigastric a., inferior epigastric a., superficial external pudendal a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles-thumbnails/transversus-abdominus.jpg"
     }
 ]
 
-abdomimals_muscles.each do |muscle|
+abdominals_muscles.each do |muscle|
     Muscle.create(
         name: muscle[:name], 
         origin: muscle[:origin], 
@@ -342,7 +342,7 @@ glutes_muscles = [
         insertion: "upper fibers: iliotibial tract; lowermost fibers: gluteal tuberosity of the femur",
         action: "extends the thigh; laterally rotates the femur",
         innervation: "inferior gluteal nerve",
-        blood_supply: "superior and inferior gluteal aa."
+        blood_supply: "superior and inferior gluteal aa.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/gluteus-maximus.jpg"
     },
     {
@@ -351,7 +351,7 @@ glutes_muscles = [
         insertion: "greater trochanter of the femur",
         action: "abducts the femur; medially rotates the thigh",
         innervation: "superior gluteal nerve",
-        blood_supply: "superior gluteal a."
+        blood_supply: "superior gluteal a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/gluteus-medius.jpg"
     },
     {
@@ -360,7 +360,7 @@ glutes_muscles = [
         insertion: "greater trochanter of the femur",
         action: "abducts the femur; medially rotates the thigh",
         innervation: "superior gluteal nerve",
-        blood_supply: "superior gluteal a."
+        blood_supply: "superior gluteal a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/gluteus-minimus.jpg"
     }
 ]
@@ -385,7 +385,7 @@ quadriceps_muscles = [
         insertion: "patella and tibial tuberosity (via the patellar ligament)",
         action: "extends knee, flexes the thigh",
         innervation: "femoral nerve",
-        blood_supply: "lateral circumflex femoral a."
+        blood_supply: "lateral circumflex femoral a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/rectus-femoris.jpg"
     },
     {
@@ -394,7 +394,7 @@ quadriceps_muscles = [
         insertion: "patella",
         action: "extends knee",
         innervation: "femoral nerve",
-        blood_supply: "lateral femoral circumflex a."
+        blood_supply: "lateral femoral circumflex a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/vastus-intermedius.jpg"
     },
     {
@@ -403,7 +403,7 @@ quadriceps_muscles = [
         insertion: "patella",
         action: "extends knee",
         innervation: "femoral nerve",
-        blood_supply: "lateral femoral circumflex a., perforating branches of the deep femoral a."
+        blood_supply: "lateral femoral circumflex a., perforating branches of the deep femoral a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/vastus-lateralis.jpg"
     },
     {
@@ -412,7 +412,7 @@ quadriceps_muscles = [
         insertion: "patella",
         action: "extends knee",
         innervation: "femoral nerve",
-        blood_supply: "lateral femoral circumflex a."
+        blood_supply: "lateral femoral circumflex a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/vastus-medialis.jpg"
     }
 ]
@@ -437,7 +437,7 @@ hamstrings_muscles = [
         insertion: "head of fibula and lateral condyle of the tibia",
         action: "extends the thigh, flexes the leg",
         innervation: "long head: tibial nerve; short head: common fibular (peroneal) nerve",
-        blood_supply: "perforating branches of the deep femoral a."
+        blood_supply: "perforating branches of the deep femoral a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/biceps-femoris.jpg"
     },
     {
@@ -446,7 +446,7 @@ hamstrings_muscles = [
         insertion: "medial condyle of the tibia",
         action: "extends the thigh, flexes the leg",
         innervation: "tibial nerve",
-        blood_supply: "perforating branches of the deep femoral a."
+        blood_supply: "perforating branches of the deep femoral a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/semimembrenosis.jpg"
     },
     {
@@ -455,7 +455,7 @@ hamstrings_muscles = [
         insertion: "medial surface of tibia",
         action: "extends the thigh, flexes the leg",
         innervation: "tibial nerve",
-        blood_supply: "perforating branches of the deep femoral a."
+        blood_supply: "perforating branches of the deep femoral a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/semitendinosis.jpg"
     }
 ]
@@ -480,7 +480,7 @@ calves_muscles = [
         insertion: "dorsum of the calcaneus via the calcaneal (Achilles') tendon",
         action: "plantarflexes foot; weak knee flexor",
         innervation: "tibial nerve",
-        blood_supply: "sural aa. (from the popliteal a.), posterior tibial a."
+        blood_supply: "sural aa. (from the popliteal a.), posterior tibial a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/gastrocnemius.jpg"
     },
     {
@@ -489,17 +489,8 @@ calves_muscles = [
         insertion: "dorsum of the calcaneus via the calcaneal (Achilles') tendon",
         action: "plantarflexes foot",
         innervation: "tibial nerve",
-        blood_supply: "posterior tibial a."
+        blood_supply: "posterior tibial a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/soleus.jpg"
-    },
-    {
-        name: "",
-        origin: "",
-        insertion: "",
-        action: "",
-        innervation: "",
-        blood_supply: ""
-        url: ""
     }
 ]
 
@@ -523,7 +514,7 @@ miscellaneous_muscles = [
         insertion: "linea aspera of the femur; the ischiocondylar part inserts on the adductor tubercle of the femur",
         action: "adducts thigh",
         innervation: "posterior division of the obturator nerve; tibial nerve",
-        blood_supply: "obturator a., deep femoral a., medial femoral circumflex a."
+        blood_supply: "obturator a., deep femoral a., medial femoral circumflex a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/adductor-magnus.jpg"
     },
     {
@@ -532,7 +523,7 @@ miscellaneous_muscles = [
         insertion: "lesser trochanter of the femur",
         action: "flexes the thigh",
         innervation: "branches of the ventral primary rami of spinal nerves L2-L4; branches of the femoral nerve",
-        blood_supply: "iliolumbar a."
+        blood_supply: "iliolumbar a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/iliopsoas.jpg"
     },
     {
@@ -541,7 +532,7 @@ miscellaneous_muscles = [
         insertion: "anterior part of the iliac crest, anterior superior iliac spine",
         action: "flexes, abducts, and medially rotates the thigh",
         innervation: "superior gluteal nerve",
-        blood_supply: "superior gluteal a."
+        blood_supply: "superior gluteal a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/tensor-fasciae-lata.jpg"
     },
     {
@@ -550,7 +541,7 @@ miscellaneous_muscles = [
         insertion: "medial surface of the medial cuneiform and the 1st metatarsal",
         action: "dorsiflexes and inverts the foot",
         innervation: "deep fibular (peroneal) nerve",
-        blood_supply: "anterior tibial a."
+        blood_supply: "anterior tibial a.",
         url: "https://anatomy.elpaso.ttuhsc.edu/images/muscles/tibialis-anterior.jpg"
     }
 ]
@@ -574,8 +565,8 @@ skull_id = Region.find_by(name: "Skull").id
 spine_id = Region.find_by(name: "Spine").id
 thorax_id = Region.find_by(name: "Thorax").id
 pelvis_id = Region.find_by(name: "Pelvis").id
-upper_extremity_id = Region.find_by(name: "Upper extremity").id
-lower_extremity_id = Region.find_by(name: "Lower extemity").id
+upper_extremity_id = Region.find_by(name: "Upper Extremity").id
+lower_extremity_id = Region.find_by(name: "Lower Extremity").id
 
 skull_bones = [
     {
@@ -711,9 +702,9 @@ pelvis_bones = [
     },
     {
         name: "ischium",
-        description: "the "V"- shaped bone that forms the posteroinferior part of the pelvis",
+        description: "the V-shaped bone that forms the posteroinferior part of the pelvis",
         url: "data:image/jpeg;base64,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"
-    }, 
+    },
     {
         name: "ilium",
         description: "	fan-shaped bone that forms the lateral prominence of the pelvis",
@@ -733,7 +724,7 @@ end
 upper_extremity_bones = [
     {
         name: "clavicle",
-        description: "an "S" shaped bone located between the sternum and the scapula",
+        description: "an S-shaped bone located between the sternum and the scapula",
         url: "data:image/jpeg;base64,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"
     },
     {
