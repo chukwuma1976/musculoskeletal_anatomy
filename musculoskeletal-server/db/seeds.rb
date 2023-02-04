@@ -568,11 +568,7 @@ miscellaneous_muscles.each do |muscle|
     )
 end
 
-puts "Muscles successfully created"
-
-# regions.each do |region|
-#     Region.create(name: region[:name])
-# end
+puts "Muscles built"
 
 skull_id = Region.find_by(name: "Skull").id
 spine_id = Region.find_by(name: "Spine").id
@@ -583,8 +579,58 @@ lower_extremity_id = Region.find_by(name: "Lower extemity").id
 
 skull_bones = [
     {
-        name: "",
-        description: "",
+        name: "ethmoid",
+        description: "delicate bone located between the two orbits",
+        url: ""
+    },    
+    {
+        name: "frontal",
+        description: "the anterior bone of the skull which underlies the forehead",
+        url: ""
+    },
+    {
+        name: "lacrimal",
+        description: "small bone forming part of the medial wall of the orbit",
+        url: ""
+    },    
+    {
+        name: "mandible",
+        description: "the U-shaped bone forming the lower jaw",
+        url: ""
+    },
+    {
+        name: "maxilla",
+        description: "bone forming the midface",
+        url: ""
+    },    
+    {
+        name: "nasal",
+        description: "thin bone that forms part of the bridge of the nose",
+        url: ""
+    },
+    {
+        name: "occipital",
+        description: "the bone forming the posterior surface of the skull",
+        url: ""
+    },    
+    {
+        name: "parietal",
+        description: "a broad, flat bone forming the lateral surface of the skull",
+        url: ""
+    },
+    {
+        name: "sphenoid",
+        description: "an irregularly shaped bone forming the central portion of the skull",
+        url: ""
+    },    
+    {
+        name: "temporal",
+        description: "bone forming the lateral side of the skull",
+        url: ""
+    },
+    {
+        name: "zygomatic",
+        description: "the bone that forms the cheek",
         url: ""
     }
 ]
@@ -595,6 +641,191 @@ skull_bones.each do |bone|
         description: bone[:description],
         url: bone[:url],
         region_id: skull_id
+    )
+end
+
+spine_bones = [
+    {
+        name: "cervical vertebrae",
+        description: "the 7 vertebrae of the neck",
+        url: ""
+    }, 
+    {
+        name: "thoracic vertebrae",
+        description: "the 12 vertebrae associated with the thoracic region",
+        url: ""
+    },
+    {
+        name: "lumbar vertebrae",
+        description: "the 5 vertebrae located in the lumbar region",
+        url: ""
+    },
+    {
+        name: "sacrum",
+        description: "a triangular bone that is the posterior skeletal element forming the pelvis",
+        url: ""
+    },   
+    {
+        name: "coccyx",
+        description: "the most inferior portion of the vertebral column",
+        url: ""
+    }
+]
+
+spine_bones.each do |bone|
+    Bone.create(
+        name: bone[:name],
+        description: bone[:description],
+        url: bone[:url],
+        region_id: spine_id
+    )
+end
+
+thorax_bones = [    
+    {
+        name: "ribs",
+        description: "12 pairs of bones forming the lateral thoracic wall",
+        url: ""
+    },
+    {
+        name: "sternum",
+        description: "the broad flat bone forming the anterior thoracic wall",
+        url: ""
+    }
+]
+
+thorax_bones.each do |bone|
+    Bone.create(
+        name: bone[:name],
+        description: bone[:description],
+        url: bone[:url],
+        region_id: thorax_id
+    )
+end
+
+pelvis_bones = [
+    {
+        name: "pubis",
+        description: "an angulated bone the forms the anterior part of the pelvis",
+        url: ""
+    },
+    {
+        name: "ischium",
+        description: "the "V"- shaped bone that forms the posteroinferior part of the pelvis",
+        url: ""
+    }, 
+    {
+        name: "ilium",
+        description: "	fan-shaped bone that forms the lateral prominence of the pelvis",
+        url: ""
+    }
+]
+
+pelvis_bones.each do |bone|
+    Bone.create(
+        name: bone[:name],
+        description: bone[:description],
+        url: bone[:url],
+        region_id: pelvis_id
+    )
+end
+
+upper_extremity_bones = [
+    {
+        name: "clavicle",
+        description: "an "S" shaped bone located between the sternum and the scapula",
+        url: ""
+    },
+    {
+        name: "scapula",
+        description: "the bone of the shoulder",
+        url: ""
+    },
+    {
+        name: "humerus",
+        description: "the bone of the arm (brachium)",
+        url: ""
+    }, 
+    {
+        name: "ulna",
+        description: "the bone on the medial side of the forearm (antebrachium)",
+        url: ""
+    },
+    {
+        name: "radius",
+        description: "the bone on the lateral side of the forearm (antebrachium)",
+        url: ""
+    },
+    {
+        name: "carpal bones",
+        description: "the bones of the wrist",
+        url: ""
+    },
+    {
+        name: "metacarpal bones",
+        description: "the bones located between the carpal bones and the phalanges of the hand",
+        url: ""
+    },
+    {
+        name: "phalanges",
+        description: "the distal two or three bones in the digits of the hand",
+        url: ""
+    }
+]
+
+upper_extremity_bones.each do |bone|
+    Bone.create(
+        name: bone[:name],
+        description: bone[:description],
+        url: bone[:url],
+        region_id: upper_extremity_id
+    )
+end
+
+lower_extremity_bones = [
+    {
+        name: "femur",
+        description: "the bone of the thigh",
+        url: ""
+    },
+    {
+        name: "patella",
+        description: "the bone that forms the knee cap",
+        url: ""
+    },
+    {
+        name: "tibia",
+        description: "the bone on the medial side of the leg",
+        url: ""
+    }, 
+    {
+        name: "fibula",
+        description: "the slender bone on the lateral side of the leg",
+        url: ""
+    },
+    {
+        name: "tarsal bones",
+        description: "the bones of the ankle",
+        url: ""
+    },
+    {
+        name: "metatarsals",
+        description: "the bones located between the tarsal bones and the phalanges",
+        url: ""
+    },
+    {
+        name: "phalanges",
+        description: "the distal two or three bones in the digits of the foot",
+        url: ""
+    }
+]
+
+lower_extremity_bones.each do |bone|
+    Bone.create(
+        name: bone[:name],
+        description: bone[:description],
+        url: bone[:url],
+        region_id: lower_extremity_id
     )
 end
 
