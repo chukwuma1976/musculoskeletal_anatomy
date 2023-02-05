@@ -10,7 +10,7 @@ function MuscleTableRow({muscle}){
             <td>{action}</td>
             <td>{innervation}</td>
             <td>{blood_supply}</td>
-            <td>{name} image</td>
+            <td onClick={()=>console.log("I was clicked")}>{name} image</td>
         </tr>            
     )
 }

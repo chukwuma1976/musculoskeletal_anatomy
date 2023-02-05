@@ -6,7 +6,7 @@ function BoneTableRow({bone}){
         <tr>
             <td>{name}</td>
             <td>{description}</td>
-            <td>{name} image</td>
+            <td onClick={()=>console.log("I was clicked")}>{name} image</td>
         </tr>            
     )
 }
