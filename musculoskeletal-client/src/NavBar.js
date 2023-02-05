@@ -25,6 +25,20 @@ function NavBar(){
           >
             Bones
           </NavLink>
+          <NavLink
+            to="/add_muscle"
+            style={({isActive}) => ({background: isActive ? 'red' : ''})}
+            className="navbar"
+          >
+            Add A Muscle
+          </NavLink>
+          <NavLink
+            to="/add_bone"
+            style={({isActive}) => ({background: isActive ? 'red' : ''})}
+            className="navbar"
+          >
+            Add A Bone
+          </NavLink>
         </div>
       );
 }

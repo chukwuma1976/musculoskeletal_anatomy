@@ -16,11 +16,9 @@ function BonesTable(){
         )
 
     function handleRegion(event){
-        console.log(event.target.value);
         if (event.target.value === 'All'){
             setRegion('bones')
         } else setRegion(`regions/${event.target.value}`);
-        console.log(region);
     } 
     
     function handleSubmit(event){
@@ -30,7 +28,6 @@ function BonesTable(){
     function displayFoundByName(name){
         if (name!== null){
             const bone = bones.find(bone => bone.name === name);
-            // if (bone) return <BoneTableRow bone={bone} />
             if (bone) return (
                 <table>
                     {tableHeader}
