@@ -11,9 +11,9 @@ function BonesTable(){
 
     const tableHeader = (
         <tr className='header'>
-            <td>Name</td>
-            <td>Description</td>
-            <td>Image link</td>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image link</th>
         </tr> 
         )
 

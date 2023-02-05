@@ -23,6 +23,19 @@ td {
 }
 
 .header {
-    background: gray;
+    background: lightblue;
     font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: lightyellow;
+}
+
+.navbar {
+  display: inline-block;
+  width: 110px;
+  padding: 10px;
+  margin: 0 6px 6px;
+  background: green;
+  color: white
 }

@@ -11,13 +11,13 @@ function MusclesTable(){
 
     const tableHeader = (
         <tr className='header'>
-            <td>Name</td>
-            <td>Origin</td>
-            <td>Insertion</td>
-            <td>Action</td>
-            <td>Innervation</td>
-            <td>Blood Supply</td>
-            <td>Image Link</td>
+            <th>Name</th>
+            <th>Origin</th>
+            <th>Insertion</th>
+            <th>Action</th>
+            <th>Innervation</th>
+            <th>Blood Supply</th>
+            <th>Image Link</th>
         </tr> 
         )
 
