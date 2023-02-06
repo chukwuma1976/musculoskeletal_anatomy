@@ -1,5 +1,5 @@
 import React from 'react';
-import Popup from 'reactjs-popup'
+import PopUp from './PopUp'
 import { useState } from 'react';
 
 function BoneTableRow({bone}){
@@ -7,11 +7,15 @@ function BoneTableRow({bone}){
     const [showPopUp, setShowPopUp] = useState(false)
     return (
         <tr>
-            <td>{name}</td>
+            <td>
+                {name}
+                <br/>
+                <button>edit</button>
+                <button>X</button>
+            </td>
             <td>{description}</td>
             <td>
-                <button onClick={()=>setShowPopUp(true)}>expand</button>
-                <img className='thumbnail' src={url} alt={name} />
+                <img className='thumbnail' onClick={()=>setShowPopUp(true)} src={url} alt={name} />
                 <PopUp showPopUp={showPopUp} closePopUp={()=>setShowPopUp(false)}>
                     <img className='enlarged' src={url} alt={name} />
                 </PopUp>                
