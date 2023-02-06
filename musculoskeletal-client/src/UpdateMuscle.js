@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function UpdateMuscle({muscle}) {
     const [newMuscle, setNewMuscle] = useState({
@@ -10,28 +10,28 @@ function UpdateMuscle({muscle}) {
         innervation: muscle.innervation,
         blood_supply: muscle.blood_supply
     })
-    const {id, origin, insertion, action, innervation, blood_supply} = newMuscle
+    const {origin, insertion, action, innervation, blood_supply} = newMuscle
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     function handleChange(event){
         setNewMuscle(newMuscle=>({...newMuscle, [event.target.name]:event.target.value}))
     }
     function handleSubmit(event){
         event.preventDefault()
-        fetch(`http://localhost:9292/muscles/${id}`, {
+        fetch(`http://localhost:9292/muscles/${muscle.id}`, {
                 method: "PATCH",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newMuscle)
             })
             .then(res=>res.json())
             .then(muscle=>console.log(muscle))
-        navigate("/muscles")
+        // navigate("/muscles")
     }
 
     return (
         <div className="add_body_part">
-            <h4>Update a muscle by entering the changes in one or more parameters below</h4>
+            <h4>Update {muscle.name} by entering the changes in one or more parameters below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Origin </label>
                 <input 

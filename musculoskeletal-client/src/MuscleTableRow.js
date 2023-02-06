@@ -1,10 +1,13 @@
 import React from 'react';
 import PopUp from './PopUp';
+import UpdateMuscle from './UpdateMuscle';
 import { useState } from 'react';
 
 function MuscleTableRow({muscle}){
     const {id, name, origin, insertion, action, innervation, blood_supply, url} = muscle
     const [showPopUp, setShowPopUp] = useState(false)
+    const [showEdit, setShowEdit] = useState(false)
+    
     function removeMuscle(){
         fetch(`http://localhost:9292/muscles/${id}`, {
             method: "DELETE"
@@ -12,13 +15,24 @@ function MuscleTableRow({muscle}){
         .then(res=>res.json())
         .then(bone=>console.log(bone))
     }
+
+    function editMuscle(){
+        return (
+            <div>
+                <PopUp showPopUp={showEdit} closePopUp={()=>setShowEdit(false)}>
+                    <UpdateMuscle muscle={muscle} />
+                </PopUp> 
+            </div>
+        )
+    }
     
     return (
         <tr>
             <td>
-                {name}
+                {name.toUpperCase()}
                 <br/>
-                <button>edit</button>
+                <button onClick={()=>setShowEdit(true)} >edit</button>
+                {editMuscle()}
                 <button onClick={removeMuscle} >X</button>
             </td>
             <td>{origin}</td>

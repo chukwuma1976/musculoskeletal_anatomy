@@ -1,10 +1,12 @@
 import React from 'react';
 import PopUp from './PopUp'
+import UpdateBone from './UpdateBone'
 import { useState } from 'react';
 
 function BoneTableRow({bone}){
     const {id, name, description, url} = bone
     const [showPopUp, setShowPopUp] = useState(false)
+    const [showEdit, setShowEdit] = useState(false)
 
     function removeBone(){
         fetch(`http://localhost:9292/bones/${id}`, {
@@ -14,12 +16,21 @@ function BoneTableRow({bone}){
         .then(bone=>console.log(bone))
     }
 
+    function editBone(){
+        return (
+            <PopUp showPopUp={showEdit} closePopUp={()=>setShowEdit(false)}>
+                <UpdateBone bone={bone} />
+            </PopUp>
+        ) 
+    }
+
     return (
         <tr>
             <td>
-                {name}
+                {name.toUpperCase()}
                 <br/>
-                <button>edit</button>
+                <button onClick={()=>setShowEdit(true)} >edit</button>
+                {editBone()}
                 <button onClick={removeBone}>X</button>
             </td>
             <td>{description}</td>

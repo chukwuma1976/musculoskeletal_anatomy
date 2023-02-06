@@ -1,32 +1,32 @@
 import React from 'react';
 import { useState } from 'react';   
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 function UpdateBone({bone}){
     const [newBone, setNewBone] = useState({description: bone.description})
 
-    const {id, description} = newBone
+    const {description} = newBone
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     function handleChange(event){
         setNewBone(newBone=>({...newBone, [event.target.name]:event.target.value}))
     }
     function handleSubmit(event){
         event.preventDefault()
-        fetch(`http://localhost:9292/bones/${id}`, {
+        fetch(`http://localhost:9292/bones/${bone.id}`, {
                 method: "PATCH",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBone)
             })
             .then(res=>res.json())
             .then(bone=>console.log(bone))
-        navigate("/bones")
+        // navigate("/bones")
     }
 
     return (
         <div className="add_body_part">
-            <h4>Update a Bone by entering the information below</h4>
+            <h4>Update {bone.name} by entering the information below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Description </label>
                 <input 

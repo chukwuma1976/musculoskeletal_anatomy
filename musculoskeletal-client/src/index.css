@@ -39,7 +39,7 @@ tr:nth-child(even) {
   background: green;
   color: white
 }
-.add_body_part {
+/* .add_body_part {
   text-align: center;
   width: 400px;
   height: 400px;
@@ -48,7 +48,7 @@ tr:nth-child(even) {
   margin-left: auto;
   margin-right: auto;
   background: lightgoldenrodyellow;
-}
+} */
 .home-page {
   background: whitesmoke;
   text-align: center;
@@ -68,8 +68,9 @@ img.enlarged {
 
   width: 60%;
 
-  border: 1px solid black;
+  border: 2px solid blue;
   border-radius: 1em;
+  box-shadow: -2px 5px 5px blue;
 
   background-color: #FDFFFC;
 
