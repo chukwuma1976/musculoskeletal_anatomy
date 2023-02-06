@@ -37,6 +37,11 @@ class ApplicationController < Sinatra::Base
       muscle.to_json
     end
 
+    get '/muscles/:id' do
+      muscle = Muscle.find_by(id: params[:id])
+      muscle.to_json
+    end
+
     get '/bones' do
       bones =Bone.all.order(:name)
       bones.to_json
@@ -49,6 +54,11 @@ class ApplicationController < Sinatra::Base
 
     get '/bones/:name' do
       bone = Bone.find_by(name: params[:name])
+      bone.to_json
+    end
+
+    get '/bones/:id' do
+      bone = Bone.find_by(id: params[:id])
       bone.to_json
     end
 
