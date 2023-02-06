@@ -56,37 +56,27 @@ tr:nth-child(even) {
 img.thumbnail {
   width: 100px;
 }
+img.enlarged {
+  height: 450px;
+}
 
-.modal {
-  font-size: 12px;
-}
-.modal > .header {
-  width: 100%;
-  border-bottom: 1px solid gray;
-  font-size: 18px;
-  text-align: center;
-  padding: 5px;
-}
-.modal > .content {
-  width: 100%;
-  padding: 10px 5px;
-}
-.modal > .actions {
-  width: 100%;
-  padding: 10px 5px;
-  margin: auto;
-  text-align: center;
-}
-.modal > .close {
-  cursor: pointer;
-  position: absolute;
-  display: block;
-  padding: 2px 5px;
-  line-height: 20px;
-  right: -10px;
-  top: -10px;
-  font-size: 24px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #cfcece;
+.PopUp{
+  position: fixed;
+
+  left: 30%;
+  top: 10%;
+
+  width: 50%;
+
+  border: 1px solid black;
+  border-radius: 1em;
+
+  background-color: #FDFFFC;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  /* color: #011627; */
 }

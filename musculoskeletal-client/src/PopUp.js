@@ -1,11 +1,14 @@
 import React from 'react';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
-function PopUp({content}){
-    <Popup trigger={<button className="button"> Open Modal </button>} modal>
-      <span> {content} </span>
-    </Popup>
+
+function PopUp({showPopUp, closePopUp, children}){
+  if (!showPopUp) {return null;}
+  return (
+    <div className="PopUp" >
+        <button onClick={closePopUp}>X</button>
+        {children}
+    </div>
+  );
 };
 
 export default PopUp;
