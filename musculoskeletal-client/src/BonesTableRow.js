@@ -6,7 +6,9 @@ function BoneTableRow({bone}){
         <tr>
             <td>{name}</td>
             <td>{description}</td>
-            <td onClick={()=>console.log("I was clicked")}>{name} image</td>
+            <td onClick={()=>console.log(`${name} was clicked`)}>
+                <img className='thumbnail' src={url} alt={name} />
+            </td>
         </tr>            
     )
 }
