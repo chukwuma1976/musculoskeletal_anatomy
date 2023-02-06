@@ -27,7 +27,7 @@ function BonesTable(){
     }
     function displayFoundByName(name){
         if (name!== null){
-            const bone = bones.find(bone => bone.name === name);
+            const bone = bones.find(bone => bone.name === name.toLowerCase());
             if (bone) return (
                 <table>
                     {tableHeader}

@@ -31,7 +31,7 @@ function MusclesTable(){
     }
     function displayFoundByName(name){
         if (name!== null){
-            const muscle = muscles.find(muscle => muscle.name === name);
+            const muscle = muscles.find(muscle => muscle.name === name.toLowerCase());
             if (muscle) return (
                 <table>
                     {tableHeader}

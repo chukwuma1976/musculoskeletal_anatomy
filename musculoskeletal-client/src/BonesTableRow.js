@@ -3,15 +3,24 @@ import PopUp from './PopUp'
 import { useState } from 'react';
 
 function BoneTableRow({bone}){
-    const {name, description, url} = bone
+    const {id, name, description, url} = bone
     const [showPopUp, setShowPopUp] = useState(false)
+
+    function removeBone(){
+        fetch(`http://localhost:9292/bones/${id}`, {
+            method: "DELETE"
+        })
+        .then(res=>res.json())
+        .then(bone=>console.log(bone))
+    }
+
     return (
         <tr>
             <td>
                 {name}
                 <br/>
                 <button>edit</button>
-                <button>X</button>
+                <button onClick={removeBone}>X</button>
             </td>
             <td>{description}</td>
             <td>
