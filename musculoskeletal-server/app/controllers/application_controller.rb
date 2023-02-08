@@ -11,8 +11,10 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/bodyparts/:name' do
-      bodyparts = Bodypart.find_by(name: params[:name]).muscles
-      bodyparts.to_json
+      # bodyparts = Bodypart.find_by(name: params[:name]).muscles
+      # bodyparts.to_json
+      bodyparts = Bodypart.find_by(name: params[:name])
+      bodyparts.to_json(include: :muscles)
     end
 
     get '/regions' do
@@ -21,24 +23,16 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/regions/:name' do
-      regions = Region.find_by(name: params[:name]).bones
-      regions.to_json
+      # regions = Region.find_by(name: params[:name]).bones
+      # regions.to_json
+      regions = Region.find_by(name: params[:name])
+      regions.to_json(include: :bones)
     end
 
     get '/muscles' do
       muscles = Muscle.all.order(:name)
       muscles.to_json
     end
-
-    # get '/muscles/names' do
-    #   muscles = Muscle.all.order(:name).pluck(:name, :id)
-    #   muscles.to_json
-    # end
-
-    # get '/muscles/:name' do
-    #   muscle = Muscle.find_by(name: params[:name])
-    #   muscle.to_json
-    # end
 
     get '/muscles/:id' do
       muscle = Muscle.find_by(id: params[:id])
@@ -49,16 +43,6 @@ class ApplicationController < Sinatra::Base
       bones =Bone.all.order(:name)
       bones.to_json
     end
-
-    # get '/bones/names' do
-    #   bones =Bone.all.order(:name).pluck(:name, :id)
-    #   bones.to_json
-    # end
-
-    # get '/bones/:name' do
-    #   bone = Bone.find_by(name: params[:name])
-    #   bone.to_json
-    # end
 
     get '/bones/:id' do
       bone = Bone.find_by(id: params[:id])
@@ -81,6 +65,7 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/bones' do
+
       new_bone = Bone.create(
         name: params[:name],
         description: params[:description],
