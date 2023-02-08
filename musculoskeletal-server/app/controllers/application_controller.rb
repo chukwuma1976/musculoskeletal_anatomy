@@ -1,4 +1,7 @@
 class ApplicationController < Sinatra::Base
+
+    require 'pry'
+
     set :default_content_type, 'application/json'
     
     # READ
@@ -27,15 +30,15 @@ class ApplicationController < Sinatra::Base
       muscles.to_json
     end
 
-    get '/muscles/names' do
-      muscles = Muscle.all.order(:name).pluck(:name, :id)
-      muscles.to_json
-    end
+    # get '/muscles/names' do
+    #   muscles = Muscle.all.order(:name).pluck(:name, :id)
+    #   muscles.to_json
+    # end
 
-    get '/muscles/:name' do
-      muscle = Muscle.find_by(name: params[:name])
-      muscle.to_json
-    end
+    # get '/muscles/:name' do
+    #   muscle = Muscle.find_by(name: params[:name])
+    #   muscle.to_json
+    # end
 
     get '/muscles/:id' do
       muscle = Muscle.find_by(id: params[:id])
@@ -47,15 +50,15 @@ class ApplicationController < Sinatra::Base
       bones.to_json
     end
 
-    get '/bones/names' do
-      bones =Bone.all.order(:name).pluck(:name, :id)
-      bones.to_json
-    end
+    # get '/bones/names' do
+    #   bones =Bone.all.order(:name).pluck(:name, :id)
+    #   bones.to_json
+    # end
 
-    get '/bones/:name' do
-      bone = Bone.find_by(name: params[:name])
-      bone.to_json
-    end
+    # get '/bones/:name' do
+    #   bone = Bone.find_by(name: params[:name])
+    #   bone.to_json
+    # end
 
     get '/bones/:id' do
       bone = Bone.find_by(id: params[:id])
@@ -72,7 +75,7 @@ class ApplicationController < Sinatra::Base
         innervation: params[:innervation], 
         blood_supply: params[:blood_supply], 
         url: params[:url],
-        bodypart_id: params[:bodypart_id]
+        bodypart_id: params[:bodypart_id].to_i
         )
       new_muscle.to_json
     end
@@ -82,7 +85,7 @@ class ApplicationController < Sinatra::Base
         name: params[:name],
         description: params[:description],
         url: params[:url],
-        region_id: params[region_id]
+        region_id: params[region_id].to_i
       )  
       new_bone.to_json    
     end
