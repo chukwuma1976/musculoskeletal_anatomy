@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AddSection from "./AddSection";
 
-function AddMuscle() {
+function AddMuscle(bodyparts, setBodyParts) {
     const [newMuscle, setNewMuscle] = useState({
         name: "",
         origin: "",
@@ -14,7 +15,6 @@ function AddMuscle() {
         bodypart_id: ""
     })
     const {name, origin, insertion, action, innervation, blood_supply, url, bodypart_id} = newMuscle
-
     const navigate = useNavigate()
 
     function handleChange(event){
@@ -34,6 +34,8 @@ function AddMuscle() {
 
     return (
         <div className="add_body_part">
+            <h4>You can choose to add a new muscle category </h4>
+            <AddSection parameter={"bodyparts"} section={bodyparts} setSection={setBodyParts}/>
             <h4>Add a muscle by updating the information below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Name </label>

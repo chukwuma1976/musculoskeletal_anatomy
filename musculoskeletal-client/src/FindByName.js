@@ -4,7 +4,6 @@ function FindByName({setName, structure}){
     let entry
 
     function handleChange(event){
-        console.log(event.target.value)
         setName(event.target.value)
     }
 
