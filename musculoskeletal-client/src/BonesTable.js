@@ -21,11 +21,6 @@ function BonesTable(){
         } else setRegion(`regions/${event.target.value}`);
     } 
     
-    function handleSubmit(event){
-        event.preventDefault();
-        console.log(event.target.value)
-        setName(event.target.value)
-    }
     function displayFoundByName(name){
         if (name!== null){
             const bone = bones.find(bone => name.toLowerCase()===bone.name);
@@ -54,7 +49,7 @@ function BonesTable(){
         <div>
             <h2>Bones of the Skeleton</h2>
             <FilterByRegion handleRegion={handleRegion}/>
-            <FindByName setName={setName} handleSubmit={handleSubmit} structure={"bone"}/>
+            <FindByName setName={setName} structure={"bone"}/>
             <br/>
             {displayFoundByName(name)}           
             <table>

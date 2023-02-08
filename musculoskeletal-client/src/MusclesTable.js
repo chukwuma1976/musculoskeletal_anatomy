@@ -26,11 +26,6 @@ function MusclesTable(){
         } else setBodyPart(`bodyparts/${event.target.value}`);
     }
 
-    function handleSubmit(event){
-        event.preventDefault();
-        console.log(event.target.value)
-        setName(event.target.value)
-    }
     function displayFoundByName(name){
         if (name!== null){
             const muscle = muscles.find(muscle => name.toLowerCase()===muscle.name);
@@ -59,7 +54,7 @@ function MusclesTable(){
         <div>
             <h2>Muscles involved in exercise</h2>
             <FilterByBodyPart handleBodyPart={handleBodyPart}/>
-            <FindByName setName={setName} handleSubmit={handleSubmit} structure={"muscle"}/>
+            <FindByName setName={setName} structure={"muscle"}/>
             {displayFoundByName(name)}
             <table>
                 {tableHeader}
