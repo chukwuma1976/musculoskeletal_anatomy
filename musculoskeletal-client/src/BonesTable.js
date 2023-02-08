@@ -23,11 +23,12 @@ function BonesTable(){
     
     function handleSubmit(event){
         event.preventDefault();
+        console.log(event.target.value)
         setName(event.target.value)
     }
     function displayFoundByName(name){
         if (name!== null){
-            const bone = bones.find(bone => bone.name === name.toLowerCase());
+            const bone = bones.find(bone => name.toLowerCase()===bone.name);
             if (bone) return (
                 <table>
                     {tableHeader}
@@ -40,16 +41,21 @@ function BonesTable(){
     useEffect(() => {
         fetch(`http://localhost:9292/${region}`)
         .then(response => response.json())
-        .then(bones => setBones(bones));
+        .then(data => {
+            if (region === 'bones') setBones(data)
+            else setBones(data.bones)
+        })
       }, [region]);
 
     const [bones, setBones] = useState([]);
     const boneTableRows = bones.map(bone => <BoneTableRow key={bone.id} bone={bone} />)
+
     return (
         <div>
             <h2>Bones of the Skeleton</h2>
             <FilterByRegion handleRegion={handleRegion}/>
             <FindByName setName={setName} handleSubmit={handleSubmit} structure={"bone"}/>
+            <br/>
             {displayFoundByName(name)}           
             <table>
                 {tableHeader}

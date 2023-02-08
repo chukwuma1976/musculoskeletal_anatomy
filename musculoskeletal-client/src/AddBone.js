@@ -19,11 +19,12 @@ function AddBone() {
     }
     function handleSubmit(event){
         event.preventDefault()
+        console.log(newBone)
         fetch("http://localhost:9292/bones", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBone)
-            })
+            }) 
             .then(res=>res.json())
             .then(bone=>console.log(bone))
         navigate("/bones")
@@ -31,7 +32,7 @@ function AddBone() {
 
     return (
         <div className="add_body_part">
-            <h4>Add a Bone by entering the information below</h4>
+            <h4>Add a Bone by updating the information below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Name </label>
                 <input 

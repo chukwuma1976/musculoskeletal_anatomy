@@ -7,6 +7,7 @@ import FindByName from './FindByName';
 function MusclesTable(){
     const [bodyPart, setBodyPart] = useState('muscles');
     const [name, setName] = useState(null)
+    
     const tableHeader = (
         <tr className='header'>
             <th>Name</th>
@@ -27,11 +28,12 @@ function MusclesTable(){
 
     function handleSubmit(event){
         event.preventDefault();
+        console.log(event.target.value)
         setName(event.target.value)
     }
     function displayFoundByName(name){
         if (name!== null){
-            const muscle = muscles.find(muscle => muscle.name === name.toLowerCase());
+            const muscle = muscles.find(muscle => name.toLowerCase()===muscle.name);
             if (muscle) return (
                 <table>
                     {tableHeader}
@@ -44,7 +46,10 @@ function MusclesTable(){
     useEffect(() => {
         fetch(`http://localhost:9292/${bodyPart}`)
         .then(response => response.json())
-        .then(muscles => setMuscles(muscles));
+        .then(data => {
+            if (bodyPart === 'muscles') setMuscles(data)
+                else setMuscles(data.muscles)
+        });
       }, [bodyPart]);
 
     const [muscles, setMuscles] = useState([]);

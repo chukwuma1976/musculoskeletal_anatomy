@@ -11,7 +11,7 @@ function AddMuscle() {
         innervation: "",
         blood_supply: "",
         url: "",
-        bodypart_id: null
+        bodypart_id: ""
     })
     const {name, origin, insertion, action, innervation, blood_supply, url, bodypart_id} = newMuscle
 
@@ -34,7 +34,7 @@ function AddMuscle() {
 
     return (
         <div className="add_body_part">
-            <h4>Add a muscle by entering the information below</h4>
+            <h4>Add a muscle by updating the information below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Name </label>
                 <input 

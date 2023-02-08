@@ -25,7 +25,7 @@ function UpdateBone({bone}){
     }
 
     return (
-        <div className="add_body_part">
+        <div>
             <h4>Update {bone.name} by entering the information below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Description </label>

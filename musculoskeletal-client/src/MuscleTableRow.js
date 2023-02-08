@@ -13,7 +13,7 @@ function MuscleTableRow({muscle}){
             method: "DELETE"
         })
         .then(res=>res.json())
-        .then(bone=>console.log(bone))
+        .then(muscle=>console.log(muscle))
     }
 
     function editMuscle(){

@@ -4,12 +4,13 @@ function FindByName({setName, handleSubmit, structure}){
     let entry
 
     function handleChange(event){
+        console.log(event.target.value)
         setName(event.target.value)
     }
 
     return (
         <div className="filter">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={()=>handleSubmit}>
                 <label>Find {structure} by name: </label>
                 <input type="text" value={entry} onChange={handleChange}></input>
                 <button type="submit">🔎</button>

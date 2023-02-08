@@ -11,8 +11,6 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/bodyparts/:name' do
-      # bodyparts = Bodypart.find_by(name: params[:name]).muscles
-      # bodyparts.to_json
       bodyparts = Bodypart.find_by(name: params[:name])
       bodyparts.to_json(include: :muscles)
     end
@@ -23,8 +21,6 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/regions/:name' do
-      # regions = Region.find_by(name: params[:name]).bones
-      # regions.to_json
       regions = Region.find_by(name: params[:name])
       regions.to_json(include: :bones)
     end
@@ -70,7 +66,7 @@ class ApplicationController < Sinatra::Base
         name: params[:name],
         description: params[:description],
         url: params[:url],
-        region_id: params[region_id].to_i
+        region_id: params[:region_id].to_i
       )  
       new_bone.to_json    
     end

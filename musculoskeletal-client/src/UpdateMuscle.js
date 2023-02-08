@@ -30,7 +30,7 @@ function UpdateMuscle({muscle}) {
     }
 
     return (
-        <div className="add_body_part">
+        <div>
             <h4>Update {muscle.name} by entering the changes in one or more parameters below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Origin </label>
