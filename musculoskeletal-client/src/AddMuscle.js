@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddSection from "./AddSection";
 
-function AddMuscle(bodyparts, setBodyParts) {
+function AddMuscle({bodyParts, setBodyParts}) {
     const [newMuscle, setNewMuscle] = useState({
         name: "",
         origin: "",
@@ -16,6 +16,14 @@ function AddMuscle(bodyparts, setBodyParts) {
     })
     const {name, origin, insertion, action, innervation, blood_supply, url, bodypart_id} = newMuscle
     const navigate = useNavigate()
+
+    const [bodyPartsArray, setBodyPartsArray] = useState(bodyParts)
+
+    function handleArray(element){
+        console.log(bodyPartsArray)
+        setBodyPartsArray([...bodyPartsArray, element])
+        console.log(bodyPartsArray)
+    }
 
     function handleChange(event){
         setNewMuscle(newMuscle=>({...newMuscle, [event.target.name]:event.target.value}))
@@ -35,7 +43,7 @@ function AddMuscle(bodyparts, setBodyParts) {
     return (
         <div className="add_body_part">
             <h4>You can choose to add a new muscle category </h4>
-            <AddSection parameter={"bodyparts"} section={bodyparts} setSection={setBodyParts}/>
+            <AddSection parameter={"bodyparts"} handleArray={handleArray} />
             <h4>Add a muscle by updating the information below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Name </label>

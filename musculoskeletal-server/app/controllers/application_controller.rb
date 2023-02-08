@@ -121,4 +121,16 @@ class ApplicationController < Sinatra::Base
       bone.to_json
     end
 
+    delete '/bodyparts/:id' do
+      bodypart = Bodypart.find_by(id: params[:id])
+      bodypart.destroy
+      bodypart.to_json
+    end
+
+    delete '/regions/:id' do
+      region = Region.find_by(id: params[:id])
+      region.destroy
+      region.to_json
+    end
+
   end

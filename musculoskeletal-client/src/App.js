@@ -10,20 +10,19 @@ import AddBone from './AddBone';
 
 
 function App() {
-  const [bodyparts, setBodyparts] = useState([]);
+  const [bodyParts, setBodyParts] = useState([]);
   const [regions, setRegions] = useState([]);
-
 
   useEffect(() => {
     fetch('http://localhost:9292/bodyparts').
     then(response => response.json()).
-    then(bodyparts => setBodyparts(bodyparts));
+    then(data => setBodyParts(data));
   }, []);
 
   useEffect(() => {
     fetch('http://localhost:9292/regions').
     then(response => response.json()).
-    then(regions => setRegions(regions));
+    then(data => setRegions(data));
   }, []);
 
   return (
@@ -34,7 +33,7 @@ function App() {
         <Route path="/muscles" element={<MusclesTable />} />
         <Route path="/bones" element={<BonesTable />} />
         <Route path="/add_muscle" 
-          element={<AddMuscle bodyparts={bodyparts} setBodyparts={setBodyparts} />} 
+          element={<AddMuscle bodyParts={bodyParts} setBodyparts={setBodyParts} />} 
         />
         <Route path="/add_bone" element={<AddBone />} />
       </Routes>
