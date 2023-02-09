@@ -30,12 +30,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/muscles" element={<MusclesTable />} />
-        <Route path="/bones" element={<BonesTable />} />
-        <Route path="/add_muscle" 
-          element={<AddMuscle bodyParts={bodyParts} setBodyparts={setBodyParts} />} 
-        />
-        <Route path="/add_bone" element={<AddBone />} />
+        <Route path="/muscles" element={<MusclesTable bodyParts={bodyParts} />} />
+        <Route path="/bones" element={<BonesTable regions={regions} />} />
+        <Route path="/add_muscle" element={<AddMuscle bodyParts={bodyParts} setBodyParts={setBodyParts} />} />
+        <Route path="/add_bone" element={<AddBone regions={regions} setRegions={setRegions} />} />
       </Routes>
     </div>
   );

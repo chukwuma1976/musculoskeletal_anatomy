@@ -4,7 +4,7 @@ import BoneTableRow from './BonesTableRow';
 import FilterByRegion from './FilterByRegion';
 import FindByName from './FindByName';
 
-function BonesTable(){
+function BonesTable({regions}){
     const [region, setRegion] = useState('bones');
     const [name, setName] = useState(null)
     const tableHeader = (
@@ -48,10 +48,11 @@ function BonesTable(){
     return (
         <div>
             <h2>Bones of the Skeleton</h2>
-            <FilterByRegion handleRegion={handleRegion}/>
+            <FilterByRegion regions={regions} handleRegion={handleRegion}/>
             <FindByName setName={setName} structure={"bone"}/>
             <br/>
-            {displayFoundByName(name)}           
+            {displayFoundByName(name)}   
+            <br/>        
             <table>
                 {tableHeader}
                 {boneTableRows}

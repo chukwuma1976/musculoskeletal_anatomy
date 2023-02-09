@@ -1,17 +1,15 @@
 import React from "react";
 
-function FilterByRegion({handleRegion}) {
+function FilterByRegion({regions, handleRegion}) {
+    const regionsDropDownItems = regions.map(region => 
+        <option key={region.name} value={region.name} >{region.name}</option>)
+
     return (
         <div className="filter">
             <label>Search by Region: </label>
             <select onChange={handleRegion}>
                 <option value="All">All</option>
-                <option value="Skull">Skull</option>
-                <option value="Spine">Spine</option>
-                <option value="Thorax">Thorax</option>
-                <option value="Pelvis">Pelvis</option>
-                <option value="Upper Extremity">Upper Extremity</option>
-                <option value="Lower Extremity">Lower Extremity</option>
+                {regionsDropDownItems}
             </select>
         </div>
     )    

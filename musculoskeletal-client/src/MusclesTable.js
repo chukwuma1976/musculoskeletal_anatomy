@@ -4,7 +4,7 @@ import MuscleTableRow from './MuscleTableRow';
 import FilterByBodyPart from './FilterByBodyPart';
 import FindByName from './FindByName';
 
-function MusclesTable(){
+function MusclesTable({bodyParts}) {
     const [bodyPart, setBodyPart] = useState('muscles');
     const [name, setName] = useState(null)
     
@@ -53,9 +53,11 @@ function MusclesTable(){
     return(
         <div>
             <h2>Muscles involved in exercise</h2>
-            <FilterByBodyPart handleBodyPart={handleBodyPart}/>
+            <FilterByBodyPart bodyParts={bodyParts}  handleBodyPart={handleBodyPart}/>
             <FindByName setName={setName} structure={"muscle"}/>
+            <br/>
             {displayFoundByName(name)}
+            <br/>
             <table>
                 {tableHeader}
                 {muscleTableRows}

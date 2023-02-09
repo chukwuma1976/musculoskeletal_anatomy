@@ -17,12 +17,12 @@ function AddMuscle({bodyParts, setBodyParts}) {
     const {name, origin, insertion, action, innervation, blood_supply, url, bodypart_id} = newMuscle
     const navigate = useNavigate()
 
-    const [bodyPartsArray, setBodyPartsArray] = useState(bodyParts)
+    // const [bodyPartsArray, setBodyPartsArray] = useState(bodyParts)
 
     function handleArray(element){
-        console.log(bodyPartsArray)
-        setBodyPartsArray([...bodyPartsArray, element])
-        console.log(bodyPartsArray)
+        // setBodyPartsArray([...bodyPartsArray, element])
+        setBodyParts([...bodyParts, element])
+        console.log(bodyParts)
     }
 
     function handleChange(event){
@@ -40,12 +40,21 @@ function AddMuscle({bodyParts, setBodyParts}) {
         navigate("/muscles")
     }
 
+    const bodyPartsDropDownItems = bodyParts.map(bodyPart => 
+        <option key={bodyPart.name} value={bodyPart.id} >{bodyPart.name}</option>)
+
     return (
         <div className="add_body_part">
-            <h4>You can choose to add a new muscle category </h4>
+            <h4>You can choose to add a new bodypart category </h4>
             <AddSection parameter={"bodyparts"} handleArray={handleArray} />
-            <h4>Add a muscle by updating the information below</h4>
+            <h4>Add a muscle by entering the information below</h4>
             <form onSubmit={handleSubmit}>
+            <label>Region</label>
+                <select name="bodypart_id" onChange={handleChange}>
+                    <option></option>
+                    {bodyPartsDropDownItems}    
+                </select>
+                <br/>                
                 <label>Name </label>
                 <input 
                     type="text" 
@@ -106,15 +115,6 @@ function AddMuscle({bodyParts, setBodyParts}) {
                     name="url" 
                     placeholder="url" 
                     value={url} 
-                    onChange={handleChange}
-                />
-                <br/>
-                <label>Bodypart ID </label>
-                <input 
-                    type="text" 
-                    name="bodypart_id" 
-                    placeholder="bodypart_id" 
-                    value={bodypart_id} 
                     onChange={handleChange}
                 />
                 <br/>

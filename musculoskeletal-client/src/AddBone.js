@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AddSection from "./AddSection";
 
-function AddBone() {
+function AddBone({regions, setRegions}) {
     const [newBone, setNewBone] = useState({
         name: "",
         description: "",
@@ -10,10 +11,14 @@ function AddBone() {
         region_id: ""
     })
 
-    const {name, description, url, region_id} = newBone
-
+    const {name, description, url} = newBone
     const navigate = useNavigate()
 
+    function handleArray(element) {
+        setRegions([...regions, element])
+        console.log(regions)
+    }
+    
     function handleChange(event){
         setNewBone(newBone=>({...newBone, [event.target.name]:event.target.value}))
     }
@@ -29,11 +34,21 @@ function AddBone() {
             .then(bone=>console.log(bone))
         navigate("/bones")
     }
+    const regionsDropDownItems = regions.map(region => 
+        <option key={region.name} value={region.id} >{region.name}</option>)
 
     return (
         <div className="add_body_part">
-            <h4>Add a Bone by updating the information below</h4>
+            <h4>You can choose to add a new region of the body</h4>
+            <AddSection parameter={"regions"} handleArray={handleArray} />
+            <h4>Add a Bone by entering the information below</h4>
             <form onSubmit={handleSubmit}>
+                <label>Region</label>
+                <select name="region_id" onChange={handleChange}>
+                    <option></option>
+                    {regionsDropDownItems}    
+                </select>
+                <br/>
                 <label>Name </label>
                 <input 
                     type="text" 
@@ -58,15 +73,6 @@ function AddBone() {
                     name="url" 
                     placeholder="url" 
                     value={url} 
-                    onChange={handleChange}
-                />
-                <br/>
-                <label>Region ID </label>
-                <input 
-                    type="text" 
-                    name="region_id" 
-                    placeholder="region_id" 
-                    value={region_id} 
                     onChange={handleChange}
                 />
                 <br/>

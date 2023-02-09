@@ -20,14 +20,6 @@ class ApplicationController < Sinatra::Base
       regions.to_json
     end
 
-    get 'bodyparts_and_regions' do
-      "Hello world"
-      # bodyparts = Bodypart.all
-      # regions = Region.all
-      # bodyparts.to_json
-      # regions.to_json
-    end
-
     get '/regions/:name' do
       regions = Region.find_by(name: params[:name])
       regions.to_json(include: :bones)
