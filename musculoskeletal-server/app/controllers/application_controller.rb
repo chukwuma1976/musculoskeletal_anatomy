@@ -61,7 +61,6 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/bones' do
-
       new_bone = Bone.create(
         name: params[:name],
         description: params[:description],
@@ -71,13 +70,13 @@ class ApplicationController < Sinatra::Base
       new_bone.to_json    
     end
 
-    post '/bodyparts/:id' do
-      bodypart = Bodypart.create(id: params[:id])
+    post '/bodyparts' do
+      bodypart = Bodypart.create(name: params[:name])
       bodypart.to_json
     end
 
-    post '/regions/:id' do
-      region = Region.create(id: params[:id])
+    post '/regions' do
+      region = Region.create(name: params[:name])
       region.to_json
     end
 

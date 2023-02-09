@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddSection from "./AddSection";
 
-function AddBone({regions, setRegions}) {
+function AddBone({regions, setRegions, bones, setBones}) {
     const [newBone, setNewBone] = useState({
         name: "",
         description: "",
@@ -31,9 +31,13 @@ function AddBone({regions, setRegions}) {
                 body: JSON.stringify(newBone)
             }) 
             .then(res=>res.json())
-            .then(bone=>console.log(bone))
+            .then(bone=>setBones([...bones, bone]))
         navigate("/bones")
     }
+    function handleAddition(){
+
+    }
+
     const regionsDropDownItems = regions.map(region => 
         <option key={region.name} value={region.id} >{region.name}</option>)
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddSection from "./AddSection";
 
-function AddMuscle({bodyParts, setBodyParts}) {
+function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
     const [newMuscle, setNewMuscle] = useState({
         name: "",
         origin: "",
@@ -30,13 +30,14 @@ function AddMuscle({bodyParts, setBodyParts}) {
     }
     function handleSubmit(event){
         event.preventDefault()
+        console.log(muscles)
         fetch("http://localhost:9292/muscles", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newMuscle)
             })
             .then(res=>res.json())
-            .then(muscle=>console.log(muscle))
+            .then(muscle=>setMuscles([...muscles, muscle]))
         navigate("/muscles")
     }
 
