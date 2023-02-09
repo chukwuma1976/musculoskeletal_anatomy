@@ -8,7 +8,8 @@ function BonesTable({regions, bones, setBones}){
 
     const [name, setName] = useState(null)
 
-    const boneTableRows = bones.map(bone => <BoneTableRow key={bone.id} bone={bone} onDelete={onDelete} />)
+    const boneTableRows = bones.map(bone => 
+        <BoneTableRow key={bone.id} bone={bone} onDelete={onDelete} onUpdate={onUpdate}/>)
     
     const tableHeader = (
         <tr className='header'>
@@ -37,7 +38,7 @@ function BonesTable({regions, bones, setBones}){
             if (bone) return (
                 <table>
                     {tableHeader}
-                    <BoneTableRow bone={bone} />
+                    <BoneTableRow bone={bone} onDelete={onDelete} onUpdate={onUpdate} />
                 </table>
             )    
         }
@@ -46,6 +47,14 @@ function BonesTable({regions, bones, setBones}){
         const onDeleteArray = bones.filter(bone => bone.id !== id);
         console.log(onDeleteArray);
         setBones(bones.filter(bone => bone.id !== id));
+    }
+
+    function onUpdate(updatedBone){
+        const updatedArray=bones.map(bone => {
+            if (bone.id === updatedBone.id) return updatedBone
+                else return bone
+        })
+        setBones(updatedArray)
     }
 
     return (

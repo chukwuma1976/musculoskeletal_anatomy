@@ -15,16 +15,6 @@ function MuscleTableRow({muscle, onDelete, onUpdate}) {
         .then(res=>res.json())
         .then(()=>onDelete(id))
     }
-
-    function editMuscle(){
-        return (
-            <div>
-                <PopUp showPopUp={showEdit} closePopUp={()=>setShowEdit(false)}>
-                    <UpdateMuscle muscle={muscle} />
-                </PopUp> 
-            </div>
-        )
-    }
     
     return (
         <tr>
@@ -32,7 +22,12 @@ function MuscleTableRow({muscle, onDelete, onUpdate}) {
                 {name.toUpperCase()}
                 <br/>
                 <button onClick={()=>setShowEdit(true)} >edit</button>
-                {editMuscle()}
+                <UpdateMuscle 
+                    muscle={muscle} 
+                    showPopUp={showEdit} 
+                    closePopUp={()=>setShowEdit(false)} 
+                    onUpdate={onUpdate}
+                />
                 <button onClick={removeMuscle} >X</button>
             </td>
             <td>{origin}</td>

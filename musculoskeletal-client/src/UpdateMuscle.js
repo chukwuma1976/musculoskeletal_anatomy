@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
-function UpdateMuscle({muscle}) {
+function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
     const [newMuscle, setNewMuscle] = useState({
         origin: muscle.origin,
         insertion: muscle.insertion,
@@ -25,12 +25,14 @@ function UpdateMuscle({muscle}) {
                 body: JSON.stringify(newMuscle)
             })
             .then(res=>res.json())
-            .then(muscle=>console.log(muscle))
-        // navigate("/muscles")
+            .then(muscle=>onUpdate(muscle))
+        closePopUp()
     }
 
+    if (!showPopUp) {return null}
     return (
-        <div>
+        <div className='PopUp'>
+            <button onClick={closePopUp}>close</button>
             <h4>Update {muscle.name} by entering the changes in one or more parameters below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Origin </label>

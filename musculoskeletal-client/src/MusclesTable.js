@@ -8,7 +8,8 @@ function MusclesTable({bodyParts, muscles, setMuscles}) {
     
     const [name, setName] = useState(null)
     
-    const muscleTableRows = muscles.map(muscle => <MuscleTableRow key={muscle.id} muscle={muscle} onDelete={onDelete} />);
+    const muscleTableRows = muscles.map(muscle => 
+        <MuscleTableRow key={muscle.id} muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />);
     
     const tableHeader = (
         <tr className='header'>
@@ -41,7 +42,7 @@ function MusclesTable({bodyParts, muscles, setMuscles}) {
             if (muscle) return (
                 <table>
                     {tableHeader}
-                    <MuscleTableRow muscle={muscle} />
+                    <MuscleTableRow muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />
                 </table>
             )
         }
@@ -51,6 +52,15 @@ function MusclesTable({bodyParts, muscles, setMuscles}) {
         const onDeleteArray = muscles.filter(muscle => muscle.id !== id);
         console.log(onDeleteArray);
         setMuscles(muscles.filter(muscle =>muscle.id !== id));
+    }
+
+    function onUpdate(updatedMuscle){
+        const updatedArray=muscles.map(muscle => {
+            if (muscle.id === updatedMuscle.id) return updatedMuscle
+                else return muscle
+        })
+        console.log(updatedMuscle);
+        setMuscles(updatedArray)
     }
 
     return(

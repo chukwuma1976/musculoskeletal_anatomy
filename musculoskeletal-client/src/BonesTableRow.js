@@ -16,21 +16,13 @@ function BoneTableRow({bone, onDelete, onUpdate}){
         .then(()=>onDelete(id))
     }
 
-    function editBone(){
-        return (
-            <PopUp showPopUp={showEdit} closePopUp={()=>setShowEdit(false)}>
-                <UpdateBone bone={bone} />
-            </PopUp>
-        ) 
-    }
-
     return (
         <tr>
             <td>
                 {name.toUpperCase()}
                 <br/>
                 <button onClick={()=>setShowEdit(true)} >edit</button>
-                {editBone()}
+                <UpdateBone bone={bone} showPopUp={showEdit} closePopUp={()=>setShowEdit(false)} onUpdate={onUpdate} />
                 <button onClick={removeBone}>X</button>
             </td>
             <td>{description}</td>

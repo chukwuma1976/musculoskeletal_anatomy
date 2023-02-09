@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';   
 // import { useNavigate } from 'react-router-dom';
 
-function UpdateBone({bone}){
+function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
     const [newBone, setNewBone] = useState({description: bone.description})
 
     const {description} = newBone
@@ -20,12 +20,14 @@ function UpdateBone({bone}){
                 body: JSON.stringify(newBone)
             })
             .then(res=>res.json())
-            .then(bone=>console.log(bone))
-        // navigate("/bones")
+            .then(bone=>onUpdate(bone))
+        closePopUp()
     }
 
+    if (!showPopUp) {return null}
     return (
-        <div>
+        <div className='PopUp'>
+            <button onClick={closePopUp}>close</button>
             <h4>Update {bone.name} by entering the information below</h4>
             <form onSubmit={handleSubmit}>
                 <label>Description </label>
