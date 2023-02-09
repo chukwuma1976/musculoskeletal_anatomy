@@ -3,7 +3,7 @@ import PopUp from './PopUp';
 import UpdateMuscle from './UpdateMuscle';
 import { useState } from 'react';
 
-function MuscleTableRow({muscle}){
+function MuscleTableRow({muscle, onDelete, onUpdate}) {
     const {id, name, origin, insertion, action, innervation, blood_supply, url} = muscle
     const [showPopUp, setShowPopUp] = useState(false)
     const [showEdit, setShowEdit] = useState(false)
@@ -13,7 +13,7 @@ function MuscleTableRow({muscle}){
             method: "DELETE"
         })
         .then(res=>res.json())
-        .then(muscle=>console.log(muscle))
+        .then(()=>onDelete(id))
     }
 
     function editMuscle(){

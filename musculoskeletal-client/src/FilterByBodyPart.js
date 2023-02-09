@@ -2,12 +2,12 @@ import React from "react";
 
 function FilterByBodyPart({bodyParts, handleBodyPart}) {
     const bodyPartsDropDownItems = bodyParts.map(bodyPart => 
-        <option key={bodyPart.name} value={bodyPart.name} >{bodyPart.name}</option>)
+        <option key={bodyPart.name} value={bodyPart.id} >{bodyPart.name}</option>)
 
     return (
         <div className="filter">
             <label>Search by Body Part: </label>
-            <select onChange={handleBodyPart}>
+            <select onChange={handleBodyPart} placeholder="All">
                 <option value="All">All</option>
                 {bodyPartsDropDownItems}
             </select>

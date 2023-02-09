@@ -1,12 +1,15 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import BoneTableRow from './BonesTableRow';
 import FilterByRegion from './FilterByRegion';
 import FindByName from './FindByName';
 
-function BonesTable({regions}){
-    const [region, setRegion] = useState('bones');
+function BonesTable({regions, bones, setBones}){
+
     const [name, setName] = useState(null)
+
+    const boneTableRows = bones.map(bone => <BoneTableRow key={bone.id} bone={bone} onDelete={onDelete} />)
+    
     const tableHeader = (
         <tr className='header'>
             <th>Name</th>
@@ -16,9 +19,16 @@ function BonesTable({regions}){
         )
 
     function handleRegion(event){
+        const id = event.target.value
         if (event.target.value === 'All'){
-            setRegion('bones')
-        } else setRegion(`regions/${event.target.value}`);
+            fetch(`http://localhost:9292/bones`)
+            .then(response => response.json())
+            .then(data => setBones(data))
+        } else {
+            fetch(`http://localhost:9292/regions/${id}`)
+            .then(response => response.json())
+            .then(data => setBones(data.bones))            
+        };
     } 
     
     function displayFoundByName(name){
@@ -32,18 +42,11 @@ function BonesTable({regions}){
             )    
         }
     }
-
-    useEffect(() => {
-        fetch(`http://localhost:9292/${region}`)
-        .then(response => response.json())
-        .then(data => {
-            if (region === 'bones') setBones(data)
-            else setBones(data.bones)
-        })
-      }, [region]);
-
-    const [bones, setBones] = useState([]);
-    const boneTableRows = bones.map(bone => <BoneTableRow key={bone.id} bone={bone} />)
+    function onDelete(id){
+        const onDeleteArray = bones.filter(bone => bone.id !== id);
+        console.log(onDeleteArray);
+        setBones(bones.filter(bone => bone.id !== id));
+    }
 
     return (
         <div>

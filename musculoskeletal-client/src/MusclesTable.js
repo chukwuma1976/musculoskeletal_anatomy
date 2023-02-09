@@ -1,12 +1,14 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MuscleTableRow from './MuscleTableRow';
 import FilterByBodyPart from './FilterByBodyPart';
 import FindByName from './FindByName';
 
-function MusclesTable({bodyParts}) {
-    const [bodyPart, setBodyPart] = useState('muscles');
+function MusclesTable({bodyParts, muscles, setMuscles}) {
+    
     const [name, setName] = useState(null)
+    
+    const muscleTableRows = muscles.map(muscle => <MuscleTableRow key={muscle.id} muscle={muscle} onDelete={onDelete} />);
     
     const tableHeader = (
         <tr className='header'>
@@ -21,9 +23,16 @@ function MusclesTable({bodyParts}) {
         )
 
     function handleBodyPart(event){
+        const id = event.target.value;
         if (event.target.value === 'All'){
-            setBodyPart('muscles')
-        } else setBodyPart(`bodyparts/${event.target.value}`);
+            fetch(`http://localhost:9292/muscles`)
+            .then(response => response.json())
+            .then(data => setMuscles(data)); 
+        } else {
+            fetch(`http://localhost:9292/bodyparts/${id}`)
+            .then(response => response.json())
+            .then(data => setMuscles(data.muscles));
+        }
     }
 
     function displayFoundByName(name){
@@ -38,17 +47,11 @@ function MusclesTable({bodyParts}) {
         }
     }
 
-    useEffect(() => {
-        fetch(`http://localhost:9292/${bodyPart}`)
-        .then(response => response.json())
-        .then(data => {
-            if (bodyPart === 'muscles') setMuscles(data)
-                else setMuscles(data.muscles)
-        });
-      }, [bodyPart]);
-
-    const [muscles, setMuscles] = useState([]);
-    const muscleTableRows = muscles.map(muscle => <MuscleTableRow key={muscle.id} muscle={muscle}/>);
+    function onDelete(id){
+        const onDeleteArray = muscles.filter(muscle => muscle.id !== id);
+        console.log(onDeleteArray);
+        setMuscles(muscles.filter(muscle =>muscle.id !== id));
+    }
 
     return(
         <div>

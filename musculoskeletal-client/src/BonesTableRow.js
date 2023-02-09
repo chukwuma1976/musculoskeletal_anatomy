@@ -3,7 +3,7 @@ import PopUp from './PopUp'
 import UpdateBone from './UpdateBone'
 import { useState } from 'react';
 
-function BoneTableRow({bone}){
+function BoneTableRow({bone, onDelete, onUpdate}){
     const {id, name, description, url} = bone
     const [showPopUp, setShowPopUp] = useState(false)
     const [showEdit, setShowEdit] = useState(false)
@@ -13,7 +13,7 @@ function BoneTableRow({bone}){
             method: "DELETE"
         })
         .then(res=>res.json())
-        .then(bone=>console.log(bone))
+        .then(()=>onDelete(id))
     }
 
     function editBone(){

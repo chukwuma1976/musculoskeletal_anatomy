@@ -11,7 +11,7 @@ function AddBone({regions, setRegions}) {
         region_id: ""
     })
 
-    const {name, description, url} = newBone
+    const {name, description, url, region_id} = newBone
     const navigate = useNavigate()
 
     function handleArray(element) {

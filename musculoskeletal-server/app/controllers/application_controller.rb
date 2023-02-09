@@ -10,8 +10,8 @@ class ApplicationController < Sinatra::Base
       bodyparts.to_json
     end
 
-    get '/bodyparts/:name' do
-      bodyparts = Bodypart.find_by(name: params[:name])
+    get '/bodyparts/:id' do
+      bodyparts = Bodypart.find_by(id: params[:id])
       bodyparts.to_json(include: :muscles)
     end
 
@@ -20,8 +20,8 @@ class ApplicationController < Sinatra::Base
       regions.to_json
     end
 
-    get '/regions/:name' do
-      regions = Region.find_by(name: params[:name])
+    get '/regions/:id' do
+      regions = Region.find_by(id: params[:id])
       regions.to_json(include: :bones)
     end
 
@@ -71,13 +71,13 @@ class ApplicationController < Sinatra::Base
       new_bone.to_json    
     end
 
-    post '/bodyparts' do
-      bodypart = Bodypart.create(name: params[:name])
+    post '/bodyparts/:id' do
+      bodypart = Bodypart.create(id: params[:id])
       bodypart.to_json
     end
 
-    post '/regions' do
-      region = Region.create(name: params[:name])
+    post '/regions/:id' do
+      region = Region.create(id: params[:id])
       region.to_json
     end
 
@@ -102,25 +102,25 @@ class ApplicationController < Sinatra::Base
 
     #DELETE
     delete '/muscles/:id' do
-      muscle = Muscle.find_by(id: params[:id])
+      muscle = Muscle.find(params[:id])
       muscle.destroy
       muscle.to_json
     end
 
     delete '/bones/:id' do
-      bone = Bone.find_by(id: params[:id])
+      bone = Bone.find(params[:id])
       bone.destroy
       bone.to_json
     end
 
     delete '/bodyparts/:id' do
-      bodypart = Bodypart.find_by(id: params[:id])
+      bodypart = Bodypart.find(params[:id])
       bodypart.destroy
       bodypart.to_json
     end
 
     delete '/regions/:id' do
-      region = Region.find_by(id: params[:id])
+      region = Region.find(params[:id])
       region.destroy
       region.to_json
     end

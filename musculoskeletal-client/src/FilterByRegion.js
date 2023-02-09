@@ -2,7 +2,7 @@ import React from "react";
 
 function FilterByRegion({regions, handleRegion}) {
     const regionsDropDownItems = regions.map(region => 
-        <option key={region.name} value={region.name} >{region.name}</option>)
+        <option key={region.name} value={region.id} >{region.name}</option>)
 
     return (
         <div className="filter">
