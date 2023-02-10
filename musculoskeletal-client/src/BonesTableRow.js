@@ -2,19 +2,13 @@ import React from 'react';
 import PopUp from './PopUp'
 import UpdateBone from './UpdateBone'
 import { useState } from 'react';
+import DeleteBone from './DeleteBone';
 
 function BoneTableRow({bone, onDelete, onUpdate}){
-    const {id, name, description, url} = bone
+    const {name, description, url} = bone
     const [showPopUp, setShowPopUp] = useState(false)
     const [showEdit, setShowEdit] = useState(false)
-
-    function removeBone(){
-        fetch(`http://localhost:9292/bones/${id}`, {
-            method: "DELETE"
-        })
-        .then(res=>res.json())
-        .then(()=>onDelete(id))
-    }
+    const [showDelete, setShowDelete] = useState(false)
 
     return (
         <tr>
@@ -23,7 +17,13 @@ function BoneTableRow({bone, onDelete, onUpdate}){
                 <br/>
                 <button onClick={()=>setShowEdit(true)} >edit</button>
                 <UpdateBone bone={bone} showPopUp={showEdit} closePopUp={()=>setShowEdit(false)} onUpdate={onUpdate} />
-                <button onClick={removeBone}>X</button>
+                <button onClick={()=>setShowDelete(true)}>delete</button>
+                <DeleteBone 
+                    bone={bone} 
+                    showPopUp={showDelete} 
+                    closePopUp={()=>setShowDelete(false)} 
+                    onDelete={onDelete}
+                />
             </td>
             <td>{description}</td>
             <td>

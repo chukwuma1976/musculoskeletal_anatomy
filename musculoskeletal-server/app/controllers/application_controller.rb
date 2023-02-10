@@ -1,7 +1,5 @@
 class ApplicationController < Sinatra::Base
 
-    require 'pry'
-
     set :default_content_type, 'application/json'
     
     # READ
