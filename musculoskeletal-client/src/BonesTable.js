@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import BoneTableRow from './BonesTableRow';
 import FilterByRegion from './FilterByRegion';
 import FindByName from './FindByName';
-import DeleteSection from './DeleteSection';
 
 function BonesTable({regions, setRegions, bones, setBones}){
 
@@ -43,7 +42,7 @@ function BonesTable({regions, setRegions, bones, setBones}){
             )
         } 
     }
-    
+
     function onDelete(id){
         setBones(bones.filter(bone => bone.id !== id));
     }
@@ -56,16 +55,11 @@ function BonesTable({regions, setRegions, bones, setBones}){
         setBones(updatedArray)
     }
 
-    function onDeleteSection(id){
-        setRegions(regions.filter(region => region.id !== id));
-    }
-
     return (
         <div>
             <h2>Bones of the Skeleton</h2>
             <FilterByRegion regions={regions} handleRegion={handleRegion}/>
             <FindByName setName={setName} structure={"bone"}/>
-            <DeleteSection parameter={"regions"} onDeleteSection={onDeleteSection} sections={regions} />
             <br/>
             {displayFoundByName(name)}   
             <br/>        

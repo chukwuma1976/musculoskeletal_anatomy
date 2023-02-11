@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
+import PopUp from './PopUp'
 
-function DeleteSection({parameter, onDeleteSection, sections}) {
+function DeleteSection({parameter, updateSection, sections}) {
     const [id, setId] = useState("")
+    const [showPopUp, setShowPopUp] = useState(false)
 
     function handleChange (event) {
         setId(event.target.value)   
@@ -15,20 +17,26 @@ function DeleteSection({parameter, onDeleteSection, sections}) {
         .then(res => res.json())
         .then(()=>onDeleteSection(id))    
     }
+    function onDeleteSection() {
+        fetch(`http://localhost:9292/${parameter}`)
+        .then(res => res.json())
+        .then(data => updateSection(data))
+        setShowPopUp(true)
+    }
+
     return (
         <div>
             <form onSubmit={handleDelete}>
-                <label>
-                    Select if you want to delete a {parameter==="bodyparts" ? "body part" : "region"}.
-                </label>
-                <br/>
                 <select onChange={handleChange}>
-                    <option>Select an item</option>
+                    <option>Select a {parameter==="bodyparts" ? "body part" : "region"} to remove</option>
                     {sections.map(section => 
                         <option type="text" key={section.id} value={section.id} >{section.name}</option>)}                   
                 </select>               
                 <button type="submit">Delete</button>
             </form>
+            <PopUp showPopUp={showPopUp} closePopUp={()=>setShowPopUp(false)}>
+                    <p>DELETED</p>
+            </PopUp> 
         </div>
       )
 }

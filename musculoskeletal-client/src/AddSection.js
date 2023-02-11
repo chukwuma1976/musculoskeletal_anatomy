@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
+import PopUp from './PopUp'
 
 function AddSection({parameter, handleArray}) {
 
     const [entry, setEntry] = useState({name: ""})
+    const [showPopUp, setShowPopUp] = useState(false)
     function handleChange(event) {
         setEntry({...entry, name: event.target.value})
     }
@@ -17,6 +19,7 @@ function AddSection({parameter, handleArray}) {
         })
         .then(res => res.json())
         .then(data => handleArray(data))
+        setShowPopUp(true)
     }
   
   return (
@@ -27,6 +30,9 @@ function AddSection({parameter, handleArray}) {
             <button type="submit">Submit</button>
             <br/>
         </form>
+        <PopUp showPopUp={showPopUp} closePopUp={()=>setShowPopUp(false)}>
+                    <p>You have just added {entry.name}.</p>
+        </PopUp> 
     </div>
   )
 }

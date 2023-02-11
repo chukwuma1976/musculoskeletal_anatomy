@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddSection from "./AddSection";
+import DeleteSection from "./DeleteSection";
 
 function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
     const [newMuscle, setNewMuscle] = useState({
@@ -17,10 +17,7 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
     const {name, origin, insertion, action, innervation, blood_supply, url, bodypart_id} = newMuscle
     const navigate = useNavigate()
 
-    // const [bodyPartsArray, setBodyPartsArray] = useState(bodyParts)
-
     function handleArray(element){
-        // setBodyPartsArray([...bodyPartsArray, element])
         setBodyParts([...bodyParts, element])
         console.log(bodyParts)
     }
@@ -45,11 +42,13 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
 
     return (
         <div className="add_body_part">
-            <h4>You can choose to add a new bodypart category </h4>
+            <h4>You can choose to add a new body part category </h4>
             <AddSection parameter={"bodyparts"} handleArray={handleArray} />
-            <h4>Add a muscle by entering the information below</h4>
+            <h4>You can also delete a body part</h4>
+            <DeleteSection parameter={"bodyparts"} updateSection={setBodyParts} sections={bodyParts} />
+            <h3>Add a muscle by entering the information below</h3>
             <form onSubmit={handleSubmit}>
-            <label>Region</label>
+            <label>Body Part</label>
                 <select name="bodypart_id" onChange={handleChange}>
                     <option></option>
                     {bodyPartsDropDownItems}    

@@ -42,7 +42,7 @@ tr:nth-child(even) {
 .add_body_part {
   text-align: center;
   width: 400px;
-  height: 400px;
+  height: auto;
   border: 5px solid blue;
   padding: 10px;
   margin-left: auto;

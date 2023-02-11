@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddSection from "./AddSection";
+import DeleteSection from "./DeleteSection";
 
 function AddBone({regions, setRegions, bones, setBones}) {
     const [newBone, setNewBone] = useState({
@@ -42,7 +43,9 @@ function AddBone({regions, setRegions, bones, setBones}) {
         <div className="add_body_part">
             <h4>You can choose to add a new region of the body</h4>
             <AddSection parameter={"regions"} handleArray={handleArray} />
-            <h4>Add a Bone by entering the information below</h4>
+            <h4>You can also delete a region of the body</h4>
+            <DeleteSection parameter={"regions"} updateSection={setRegions} sections={regions} />
+            <h3>Add a Bone by entering the information below</h3>
             <form onSubmit={handleSubmit}>
                 <label>Region</label>
                 <select name="region_id" onChange={handleChange}>
