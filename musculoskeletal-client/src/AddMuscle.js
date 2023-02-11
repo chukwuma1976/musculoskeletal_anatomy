@@ -30,7 +30,6 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
     }
     function handleSubmit(event){
         event.preventDefault()
-        console.log(muscles)
         fetch("http://localhost:9292/muscles", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},

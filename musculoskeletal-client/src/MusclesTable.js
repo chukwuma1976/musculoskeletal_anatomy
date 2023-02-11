@@ -3,10 +3,11 @@ import { useState } from 'react';
 import MuscleTableRow from './MuscleTableRow';
 import FilterByBodyPart from './FilterByBodyPart';
 import FindByName from './FindByName';
+import DeleteSection from './DeleteSection';
 
-function MusclesTable({bodyParts, muscles, setMuscles}) {
+function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
     
-    const [name, setName] = useState(null)
+    const [name, setName] = useState("")
     
     const muscleTableRows = muscles.map(muscle => 
         <MuscleTableRow key={muscle.id} muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />);
@@ -37,20 +38,18 @@ function MusclesTable({bodyParts, muscles, setMuscles}) {
     }
 
     function displayFoundByName(name){
-        if (name!== null){
-            const muscle = muscles.find(muscle => name.toLowerCase()===muscle.name);
-            if (muscle) return (
+        if (name!== ""){
+            const filteredMuscles = muscles.filter(muscle => muscle.name.includes(name.toLowerCase()));
+            if (filteredMuscles.length > 0) return (
                 <table>
                     {tableHeader}
-                    <MuscleTableRow muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />
+                    {filteredMuscles.map(muscle => <MuscleTableRow muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />)}                  
                 </table>
             )
-        }
+        } 
     }
 
     function onDelete(id){
-        const onDeleteArray = muscles.filter(muscle => muscle.id !== id);
-        console.log(onDeleteArray);
         setMuscles(muscles.filter(muscle =>muscle.id !== id));
     }
 
@@ -59,15 +58,18 @@ function MusclesTable({bodyParts, muscles, setMuscles}) {
             if (muscle.id === updatedMuscle.id) return updatedMuscle
                 else return muscle
         })
-        console.log(updatedMuscle);
         setMuscles(updatedArray)
+    }
+    function onDeleteSection(id){
+        setBodyParts(bodyParts.filter(bodyPart => bodyPart.id!== id));
     }
 
     return(
         <div>
             <h2>Muscles involved in exercise</h2>
             <FilterByBodyPart bodyParts={bodyParts}  handleBodyPart={handleBodyPart}/>
-            <FindByName setName={setName} structure={"muscle"}/>
+            <FindByName setName={setName} structure={"muscle"} />
+            <DeleteSection parameter={"bodyparts"} onDeleteSection={onDeleteSection} sections={bodyParts} />
             <br/>
             {displayFoundByName(name)}
             <br/>

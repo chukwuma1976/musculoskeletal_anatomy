@@ -34,9 +34,6 @@ function AddBone({regions, setRegions, bones, setBones}) {
             .then(bone=>setBones([...bones, bone]))
         navigate("/bones")
     }
-    function handleAddition(){
-
-    }
 
     const regionsDropDownItems = regions.map(region => 
         <option key={region.name} value={region.id} >{region.name}</option>)

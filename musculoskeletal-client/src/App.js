@@ -40,8 +40,19 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/muscles" element={<MusclesTable bodyParts={bodyParts} muscles={muscles} setMuscles={setMuscles} />} />
-        <Route path="/bones" element={<BonesTable regions={regions} bones={bones} setBones={setBones} />} />
+        <Route path="/muscles" 
+          element={<MusclesTable 
+          bodyParts={bodyParts} 
+          setBodyParts={setBodyParts} 
+          muscles={muscles} 
+          setMuscles={setMuscles} />} 
+        />
+        <Route path="/bones" 
+          element={<BonesTable 
+          regions={regions} 
+          setRegions={setRegions} 
+          bones={bones} 
+          setBones={setBones} />} />
         <Route path="/add_muscle" 
           element={<AddMuscle 
             bodyParts={bodyParts} 

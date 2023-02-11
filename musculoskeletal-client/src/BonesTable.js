@@ -1,12 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import BoneTableRow from './BonesTableRow';
 import FilterByRegion from './FilterByRegion';
 import FindByName from './FindByName';
+import DeleteSection from './DeleteSection';
 
-function BonesTable({regions, bones, setBones}){
+function BonesTable({regions, setRegions, bones, setBones}){
 
-    const [name, setName] = useState(null)
+    const [name, setName] = useState("")
 
     const boneTableRows = bones.map(bone => 
         <BoneTableRow key={bone.id} bone={bone} onDelete={onDelete} onUpdate={onUpdate}/>)
@@ -33,19 +33,18 @@ function BonesTable({regions, bones, setBones}){
     } 
     
     function displayFoundByName(name){
-        if (name!== null){
-            const bone = bones.find(bone => name.toLowerCase()===bone.name);
-            if (bone) return (
+        if (name!== ""){
+            const filteredBones = bones.filter(bone => bone.name.includes(name.toLowerCase()));
+            if (filteredBones.length > 0) return (
                 <table>
                     {tableHeader}
-                    <BoneTableRow bone={bone} onDelete={onDelete} onUpdate={onUpdate} />
+                    {filteredBones.map(bone => <BoneTableRow bone={bone} onDelete={onDelete} onUpdate={onUpdate} />)}                  
                 </table>
-            )    
-        }
+            )
+        } 
     }
+    
     function onDelete(id){
-        const onDeleteArray = bones.filter(bone => bone.id !== id);
-        console.log(onDeleteArray);
         setBones(bones.filter(bone => bone.id !== id));
     }
 
@@ -57,11 +56,16 @@ function BonesTable({regions, bones, setBones}){
         setBones(updatedArray)
     }
 
+    function onDeleteSection(id){
+        setRegions(regions.filter(region => region.id !== id));
+    }
+
     return (
         <div>
             <h2>Bones of the Skeleton</h2>
             <FilterByRegion regions={regions} handleRegion={handleRegion}/>
             <FindByName setName={setName} structure={"bone"}/>
+            <DeleteSection parameter={"regions"} onDeleteSection={onDeleteSection} sections={regions} />
             <br/>
             {displayFoundByName(name)}   
             <br/>        
