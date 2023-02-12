@@ -3,7 +3,7 @@ import BoneTableRow from './BonesTableRow';
 import FilterByRegion from './FilterByRegion';
 import FindByName from './FindByName';
 
-function BonesTable({regions, setRegions, bones, setBones}){
+function BonesTable({regions, bones, setBones}){
 
     const [name, setName] = useState("")
 

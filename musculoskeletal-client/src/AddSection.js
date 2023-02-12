@@ -5,6 +5,7 @@ function AddSection({parameter, handleArray}) {
 
     const [entry, setEntry] = useState({name: ""})
     const [showPopUp, setShowPopUp] = useState(false)
+    
     function handleChange(event) {
         setEntry({...entry, name: event.target.value})
     }

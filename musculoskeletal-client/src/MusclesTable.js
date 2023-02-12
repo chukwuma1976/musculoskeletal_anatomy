@@ -4,7 +4,7 @@ import MuscleTableRow from './MuscleTableRow';
 import FilterByBodyPart from './FilterByBodyPart';
 import FindByName from './FindByName';
 
-function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
+function MusclesTable({bodyParts, muscles, setMuscles}) {
     
     const [name, setName] = useState("")
     
