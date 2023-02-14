@@ -19,19 +19,19 @@ function App() {
 
     fetch('http://localhost:9292/bodyparts')
     .then(response => response.json())
-    .then(data => setBodyParts(data));
+    .then(bodyparts => setBodyParts(bodyparts));
 
     fetch('http://localhost:9292/regions')
     .then(response => response.json())
-    .then(data => setRegions(data));
+    .then(regions => setRegions(regions));
 
     fetch(`http://localhost:9292/muscles`)
     .then(response => response.json())
-    .then(data => setMuscles(data));
+    .then(muscles => setMuscles(muscles));
 
     fetch(`http://localhost:9292/bones`)
     .then(response => response.json())
-    .then(data => setBones(data));
+    .then(bones => setBones(bones));
 
   }, [])
 

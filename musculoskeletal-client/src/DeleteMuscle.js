@@ -16,7 +16,7 @@ function DeleteMuscle({muscle, showPopUp, closePopUp, onDelete}){
             <button onClick={closePopUp}>close</button>
             <p>Are you sure you want to remove {name}?</p>
             <p>If yes, then click delete below</p>
-            <button onClick={()=>{removeMuscle()}}>Delete</button>
+            <button onClick={removeMuscle}>Delete</button>
         </div>
     )
 }

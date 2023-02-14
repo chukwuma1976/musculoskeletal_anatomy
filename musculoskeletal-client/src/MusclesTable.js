@@ -28,11 +28,11 @@ function MusclesTable({bodyParts, muscles, setMuscles}) {
         if (event.target.value === 'All'){
             fetch(`http://localhost:9292/muscles`)
             .then(response => response.json())
-            .then(data => setMuscles(data)); 
+            .then(muscles => setMuscles(muscles)); 
         } else {
             fetch(`http://localhost:9292/bodyparts/${id}`)
             .then(response => response.json())
-            .then(data => setMuscles(data.muscles));
+            .then(bodypart => setMuscles(bodypart.muscles));
         }
     }
 

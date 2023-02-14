@@ -23,11 +23,11 @@ function BonesTable({regions, bones, setBones}){
         if (event.target.value === 'All'){
             fetch(`http://localhost:9292/bones`)
             .then(response => response.json())
-            .then(data => setBones(data))
+            .then(bones => setBones(bones))
         } else {
             fetch(`http://localhost:9292/regions/${id}`)
             .then(response => response.json())
-            .then(data => setBones(data.bones))            
+            .then(regions => setBones(regions.bones))            
         };
     } 
     
