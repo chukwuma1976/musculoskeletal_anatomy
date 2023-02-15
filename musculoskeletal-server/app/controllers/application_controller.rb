@@ -8,9 +8,9 @@ class ApplicationController < Sinatra::Base
       bodyparts.to_json
     end
 
-    get '/bodyparts/:id' do
-      bodyparts = Bodypart.find_by(id: params[:id])
-      bodyparts.to_json(include: :muscles)
+    get '/bodyparts/:id/muscles' do
+      bodypart = Bodypart.find_by(id: params[:id])
+      bodypart.to_json(include: :muscles)
     end
 
     get '/regions' do
@@ -18,9 +18,9 @@ class ApplicationController < Sinatra::Base
       regions.to_json
     end
 
-    get '/regions/:id' do
-      regions = Region.find_by(id: params[:id])
-      regions.to_json(include: :bones)
+    get '/regions/:id/bones' do
+      region = Region.find_by(id: params[:id])
+      region.to_json(include: :bones)
     end
 
     get '/muscles' do
@@ -69,13 +69,37 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/bodyparts' do
-      bodypart = Bodypart.create(name: params[:name])
-      bodypart.to_json
+      new_bodypart = Bodypart.create(name: params[:name])
+      new_bodypart.to_json
     end
 
     post '/regions' do
-      region = Region.create(name: params[:name])
-      region.to_json
+      new_region = Region.create(name: params[:name])
+      new_region.to_json
+    end
+
+    post '/bodyparts/:id/muscles' do
+      new_muscle = Muscle.create(
+        name: params[:name], 
+        origin: params[:origin], 
+        insertion: params[:insertion], 
+        action: params[:action], 
+        innervation: params[:innervation], 
+        blood_supply: params[:blood_supply], 
+        url: params[:url],
+        bodypart_id: params[:id].to_i
+        )
+      new_muscle.to_json
+    end
+
+    post '/regions/:id/bones' do
+      new_bone = Bone.create(
+        name: params[:name],
+        description: params[:description],
+        url: params[:url],
+        region_id: params[:id].to_i
+      )  
+      new_bone.to_json    
     end
 
     #UPDATE

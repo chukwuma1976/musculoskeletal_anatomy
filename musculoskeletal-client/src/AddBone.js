@@ -26,14 +26,23 @@ function AddBone({regions, setRegions, bones, setBones}) {
     function handleSubmit(event){
         event.preventDefault()
         console.log(newBone)
-        fetch("http://localhost:9292/bones", {
+        // fetch("http://localhost:9292/bones", {
+        //         method: "POST",
+        //         headers: {"Content-Type": "application/json"},
+        //         body: JSON.stringify(newBone)
+        //     }) 
+        //     .then(res=>res.json())
+        //     .then(bone=>setBones([...bones, bone]))
+        // navigate("/bones")
+
+        fetch(`http://localhost:9292/regions/${region_id}/bones`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBone)
             }) 
             .then(res=>res.json())
             .then(bone=>setBones([...bones, bone]))
-        navigate("/bones")
+        navigate("/bones")        
     }
 
     const regionsDropDownItems = regions.map(region => 
