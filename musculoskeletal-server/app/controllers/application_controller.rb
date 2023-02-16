@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
       bodyparts.to_json
     end
 
-    get '/bodyparts/:id/muscles' do
+    get '/bodyparts/:id' do
       bodypart = Bodypart.find_by(id: params[:id])
       bodypart.to_json(include: :muscles)
     end
@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
       regions.to_json
     end
 
-    get '/regions/:id/bones' do
+    get '/regions/:id' do
       region = Region.find_by(id: params[:id])
       region.to_json(include: :bones)
     end
@@ -78,7 +78,7 @@ class ApplicationController < Sinatra::Base
       new_region.to_json
     end
 
-    post '/bodyparts/:id/muscles' do
+    post '/bodyparts/:id' do
       new_muscle = Muscle.create(
         name: params[:name], 
         origin: params[:origin], 
@@ -92,7 +92,7 @@ class ApplicationController < Sinatra::Base
       new_muscle.to_json
     end
 
-    post '/regions/:id/bones' do
+    post '/regions/:id' do
       new_bone = Bone.create(
         name: params[:name],
         description: params[:description],

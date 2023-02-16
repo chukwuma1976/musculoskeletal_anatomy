@@ -19,11 +19,11 @@ This consists of an interactive table that displays comprehensive information ab
 
 4. Add a muscle
 
-This section allows the user to add a new muscle to the table.  Furthermore, the user can add a new body part and even add a new muscle to that body part.  The user can still add a muscle to various parts of the body using the provided dropdown list.
+This section allows the user to add a new muscle to the table.  Furthermore, the user can add a new body part and even add a new muscle to that body part.  There is also the option to remove a body part.  The user can still add a muscle to various parts of the body using the provided dropdown list.
 
 5. Add a bone
 
-This section allows the user to add a new bone to the table.  Furthermore, the user can add a new region and even add a new bone to that region.  The user can still add a bone to various regions of the body using the provided dropdown list.
+This section allows the user to add a new bone to the table.  Furthermore, the user can add a new region and even add a new bone to that region.  There is also the option to remove a region.  The user can still add a bone to various regions of the body using the provided dropdown list.
 
 To launch this application:
 

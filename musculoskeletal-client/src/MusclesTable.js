@@ -30,7 +30,7 @@ function MusclesTable({bodyParts, muscles, setMuscles}) {
             .then(response => response.json())
             .then(muscles => setMuscles(muscles)); 
         } else {
-            fetch(`http://localhost:9292/bodyparts/${id}/muscles`)
+            fetch(`http://localhost:9292/bodyparts/${id}`)
             .then(response => response.json())
             .then(bodypart => setMuscles(bodypart.muscles));
         }
