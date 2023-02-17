@@ -35,7 +35,7 @@ function AddBone({regions, setRegions, bones, setBones}) {
         //     .then(bone=>setBones([...bones, bone]))
         // navigate("/bones")
 
-        fetch(`http://localhost:9292/regions/${region_id}`, {
+        fetch(`http://localhost:9292/regions/${region_id}/bones`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBone)

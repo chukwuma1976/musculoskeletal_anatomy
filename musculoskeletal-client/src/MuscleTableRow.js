@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState }from 'react';
 import PopUp from './PopUp';
 import UpdateMuscle from './UpdateMuscle';
-import { useState } from 'react';
 import DeleteMuscle from './DeleteMuscle';
 
 function MuscleTableRow({muscle, onDelete, onUpdate}) {

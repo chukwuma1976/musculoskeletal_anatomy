@@ -36,7 +36,7 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
         //     .then(muscle=>setMuscles([...muscles, muscle]))
         // navigate("/muscles")
 
-        fetch(`http://localhost:9292/bodyparts/${bodypart_id}`, {
+        fetch(`http://localhost:9292/bodyparts/${bodypart_id}/muscles`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newMuscle)

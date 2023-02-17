@@ -53,6 +53,7 @@ function BonesTable({regions, bones, setBones}){
                 else return bone
         })
         setBones(updatedArray)
+        console.log(updatedBone, updatedArray)
     }
 
     return (

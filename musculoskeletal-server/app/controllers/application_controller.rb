@@ -45,26 +45,12 @@ class ApplicationController < Sinatra::Base
 
     # CREATE
     post '/muscles' do
-      new_muscle = Muscle.create(
-        name: params[:name], 
-        origin: params[:origin], 
-        insertion: params[:insertion], 
-        action: params[:action], 
-        innervation: params[:innervation], 
-        blood_supply: params[:blood_supply], 
-        url: params[:url],
-        bodypart_id: params[:bodypart_id].to_i
-        )
+      new_muscle = Muscle.create(params)
       new_muscle.to_json
     end
 
     post '/bones' do
-      new_bone = Bone.create(
-        name: params[:name],
-        description: params[:description],
-        url: params[:url],
-        region_id: params[:region_id].to_i
-      )  
+      new_bone = Bone.create(params)
       new_bone.to_json    
     end
 
@@ -78,46 +64,26 @@ class ApplicationController < Sinatra::Base
       new_region.to_json
     end
 
-    post '/bodyparts/:id' do
-      new_muscle = Muscle.create(
-        name: params[:name], 
-        origin: params[:origin], 
-        insertion: params[:insertion], 
-        action: params[:action], 
-        innervation: params[:innervation], 
-        blood_supply: params[:blood_supply], 
-        url: params[:url],
-        bodypart_id: params[:id].to_i
-        )
+    post '/bodyparts/:id/muscles' do
+      new_muscle = Bodypart.find(params[:id]).muscles.create(params)
       new_muscle.to_json
     end
 
-    post '/regions/:id' do
-      new_bone = Bone.create(
-        name: params[:name],
-        description: params[:description],
-        url: params[:url],
-        region_id: params[:id].to_i
-      )  
+    post '/regions/:id/bones' do
+      new_bone = Region.find(params[:id]).bones.create(params)
       new_bone.to_json    
     end
 
     #UPDATE
     patch '/muscles/:id' do
       updated_muscle = Muscle.find_by(id: params[:id])
-      updated_muscle.update(
-        origin: params[:origin], 
-        insertion: params[:insertion], 
-        action: params[:action], 
-        innervation: params[:innervation], 
-        blood_supply: params[:blood_supply]
-      )
+      updated_muscle.update(params)
       updated_muscle.to_json
     end
 
     patch '/bones/:id' do
       updated_bone = Bone.find_by(id: params[:id])
-      updated_bone.update(description: params[:description])
+      updated_bone.update(params)
       updated_bone.to_json
     end
 

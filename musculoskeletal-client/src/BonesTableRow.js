@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PopUp from './PopUp'
 import UpdateBone from './UpdateBone'
-import { useState } from 'react';
 import DeleteBone from './DeleteBone';
 
 function BoneTableRow({bone, onDelete, onUpdate}){

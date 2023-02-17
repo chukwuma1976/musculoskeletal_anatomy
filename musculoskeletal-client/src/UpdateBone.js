@@ -1,13 +1,10 @@
 import React from 'react';
 import { useState } from 'react';   
-// import { useNavigate } from 'react-router-dom';
 
 function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
     const [newBone, setNewBone] = useState({description: bone.description})
 
     const {description} = newBone
-
-    // const navigate = useNavigate()
 
     function handleChange(event){
         setNewBone(newBone=>({...newBone, [event.target.name]:event.target.value}))
@@ -20,7 +17,8 @@ function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
                 body: JSON.stringify(newBone)
             })
             .then(res=>res.json())
-            .then(bone=>onUpdate(bone))
+            .then(bone=>{console.log(bone)
+                onUpdate(bone)})
         closePopUp()
     }
 

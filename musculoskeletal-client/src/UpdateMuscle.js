@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 
 function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
     const [newMuscle, setNewMuscle] = useState({
@@ -11,8 +10,6 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
         blood_supply: muscle.blood_supply
     })
     const {origin, insertion, action, innervation, blood_supply} = newMuscle
-
-    // const navigate = useNavigate()
 
     function handleChange(event){
         setNewMuscle(newMuscle=>({...newMuscle, [event.target.name]:event.target.value}))
