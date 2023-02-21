@@ -7,9 +7,10 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
         insertion: muscle.insertion,
         action: muscle.action,
         innervation: muscle.innervation,
-        blood_supply: muscle.blood_supply
+        blood_supply: muscle.blood_supply,
+        url: muscle.url
     })
-    const {origin, insertion, action, innervation, blood_supply} = newMuscle
+    const {origin, insertion, action, innervation, blood_supply, url} = newMuscle
 
     function handleChange(event){
         setNewMuscle(newMuscle=>({...newMuscle, [event.target.name]:event.target.value}))
@@ -74,6 +75,15 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
                     name="blood_supply" 
                     placeholder="blood_supply" 
                     value={blood_supply} 
+                    onChange={handleChange}
+                />
+                <br/>
+                <label>Image URL </label>
+                <input 
+                    type="text" 
+                    name="url" 
+                    placeholder="url" 
+                    value={url} 
                     onChange={handleChange}
                 />
                 <br/>

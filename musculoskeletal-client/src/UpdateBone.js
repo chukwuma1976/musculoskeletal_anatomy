@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';   
 
 function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
-    const [newBone, setNewBone] = useState({description: bone.description})
+    const [newBone, setNewBone] = useState({description: bone.description, url: bone.url})
 
-    const {description} = newBone
+    const {description, url} = newBone
 
     function handleChange(event){
         setNewBone(newBone=>({...newBone, [event.target.name]:event.target.value}))
@@ -34,6 +34,15 @@ function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
                     name="description" 
                     placeholder="description" 
                     value={description}
+                    onChange={handleChange}
+                />
+                <br/>
+                <label>Image URL </label>
+                <input 
+                    type="text" 
+                    name="url" 
+                    placeholder="url" 
+                    value={url} 
                     onChange={handleChange}
                 />
                 <br/>
