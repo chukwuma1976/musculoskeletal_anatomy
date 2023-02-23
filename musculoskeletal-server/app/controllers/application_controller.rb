@@ -8,9 +8,9 @@ class ApplicationController < Sinatra::Base
       bodyparts.to_json
     end
 
-    get '/bodyparts/:id' do
-      bodypart = Bodypart.find_by(id: params[:id])
-      bodypart.to_json(include: :muscles)
+    get '/bodyparts/:id/muscles' do
+      bodypart_muscles = Bodypart.find(params[:id]).muscles
+      bodypart_muscles.to_json
     end
 
     get '/regions' do
@@ -18,9 +18,9 @@ class ApplicationController < Sinatra::Base
       regions.to_json
     end
 
-    get '/regions/:id' do
-      region = Region.find_by(id: params[:id])
-      region.to_json(include: :bones)
+    get '/regions/:id/bones' do
+      region_bones = Region.find(params[:id]).bones
+      region_bones.to_json
     end
 
     get '/muscles' do

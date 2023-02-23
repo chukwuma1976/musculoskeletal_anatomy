@@ -19,7 +19,6 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
 
     function handleArray(element){
         setBodyParts([...bodyParts, element])
-        console.log(bodyParts)
     }
 
     function handleChange(event){
@@ -27,14 +26,6 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
     }
     function handleSubmit(event){
         event.preventDefault()
-        // fetch("http://localhost:9292/muscles", {
-        //         method: "POST",
-        //         headers: {"Content-Type": "application/json"},
-        //         body: JSON.stringify(newMuscle)
-        //     })
-        //     .then(res=>res.json())
-        //     .then(muscle=>setMuscles([...muscles, muscle]))
-        // navigate("/muscles")
 
         fetch(`http://localhost:9292/bodyparts/${bodypart_id}/muscles`, {
                 method: "POST",

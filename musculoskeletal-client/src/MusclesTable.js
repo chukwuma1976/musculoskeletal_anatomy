@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import MuscleTableRow from './MuscleTableRow';
 import FilterByBodyPart from './FilterByBodyPart';
 import FindByName from './FindByName';
@@ -25,14 +24,14 @@ function MusclesTable({bodyParts, muscles, setMuscles}) {
 
     function handleBodyPart(event){
         const id = event.target.value;
-        if (event.target.value === 'All'){
+        if (id === 'All'){
             fetch(`http://localhost:9292/muscles`)
             .then(response => response.json())
             .then(muscles => setMuscles(muscles)); 
         } else {
-            fetch(`http://localhost:9292/bodyparts/${id}`)
+            fetch(`http://localhost:9292/bodyparts/${id}/muscles`)
             .then(response => response.json())
-            .then(bodypart => setMuscles(bodypart.muscles));
+            .then(muscles => setMuscles(muscles));
         }
     }
 

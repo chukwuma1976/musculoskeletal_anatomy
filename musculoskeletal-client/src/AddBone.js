@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddSection from "./AddSection";
 import DeleteSection from "./DeleteSection";
@@ -17,7 +16,6 @@ function AddBone({regions, setRegions, bones, setBones}) {
 
     function handleArray(element) {
         setRegions([...regions, element])
-        console.log(regions)
     }
     
     function handleChange(event){
@@ -25,15 +23,6 @@ function AddBone({regions, setRegions, bones, setBones}) {
     }
     function handleSubmit(event){
         event.preventDefault()
-        console.log(newBone)
-        // fetch("http://localhost:9292/bones", {
-        //         method: "POST",
-        //         headers: {"Content-Type": "application/json"},
-        //         body: JSON.stringify(newBone)
-        //     }) 
-        //     .then(res=>res.json())
-        //     .then(bone=>setBones([...bones, bone]))
-        // navigate("/bones")
 
         fetch(`http://localhost:9292/regions/${region_id}/bones`, {
                 method: "POST",

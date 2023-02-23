@@ -20,14 +20,14 @@ function BonesTable({regions, bones, setBones}){
 
     function handleRegion(event){
         const id = event.target.value
-        if (event.target.value === 'All'){
+        if (id === 'All'){
             fetch(`http://localhost:9292/bones`)
             .then(response => response.json())
             .then(bones => setBones(bones))
         } else {
-            fetch(`http://localhost:9292/regions/${id}`)
+            fetch(`http://localhost:9292/regions/${id}/bones`)
             .then(response => response.json())
-            .then(regions => setBones(regions.bones))            
+            .then(bones => setBones(bones))            
         };
     } 
     
@@ -53,7 +53,6 @@ function BonesTable({regions, bones, setBones}){
                 else return bone
         })
         setBones(updatedArray)
-        console.log(updatedBone, updatedArray)
     }
 
     return (

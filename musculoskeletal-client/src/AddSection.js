@@ -12,7 +12,6 @@ function AddSection({parameter, handleArray}) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log(entry)
         fetch(`http://localhost:9292/${parameter}`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
