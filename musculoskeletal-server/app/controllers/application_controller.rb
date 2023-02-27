@@ -9,8 +9,8 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/bodyparts/:id/muscles' do
-      bodypart_muscles = Bodypart.find(params[:id]).muscles
-      bodypart_muscles.to_json
+      bodypart_muscles = Bodypart.find(params[:id])
+      bodypart_muscles.to_json(include: :muscles)
     end
 
     get '/regions' do
@@ -19,27 +19,27 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/regions/:id/bones' do
-      region_bones = Region.find(params[:id]).bones
-      region_bones.to_json
+      region_bones = Region.find(params[:id])
+      region_bones.to_json(include: :bones)
     end
 
     get '/muscles' do
-      muscles = Muscle.all.order(:name)
+      muscles = Muscle.order(:name)
       muscles.to_json
     end
 
     get '/muscles/:id' do
-      muscle = Muscle.find_by(id: params[:id])
+      muscle = Muscle.find(params[:id])
       muscle.to_json
     end
 
     get '/bones' do
-      bones =Bone.all.order(:name)
+      bones =Bone.order(:name)
       bones.to_json
     end
 
     get '/bones/:id' do
-      bone = Bone.find_by(id: params[:id])
+      bone = Bone.find(params[:id])
       bone.to_json
     end
 
@@ -76,13 +76,13 @@ class ApplicationController < Sinatra::Base
 
     #UPDATE
     patch '/muscles/:id' do
-      updated_muscle = Muscle.find_by(id: params[:id])
+      updated_muscle = Muscle.find(params[:id])
       updated_muscle.update(params)
       updated_muscle.to_json
     end
 
     patch '/bones/:id' do
-      updated_bone = Bone.find_by(id: params[:id])
+      updated_bone = Bone.find(params[:id])
       updated_bone.update(params)
       updated_bone.to_json
     end

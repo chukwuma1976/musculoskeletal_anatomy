@@ -17,8 +17,7 @@ function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
                 body: JSON.stringify(newBone)
             })
             .then(res=>res.json())
-            .then(bone=>{console.log(bone)
-                onUpdate(bone)})
+            .then(bone=>onUpdate(bone))
         closePopUp()
     }
 

@@ -27,7 +27,7 @@ function BonesTable({regions, bones, setBones}){
         } else {
             fetch(`http://localhost:9292/regions/${id}/bones`)
             .then(response => response.json())
-            .then(bones => setBones(bones))            
+            .then(region => setBones(region.bones))            
         };
     } 
     
