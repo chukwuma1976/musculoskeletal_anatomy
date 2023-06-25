@@ -1,0 +1,2 @@
+class BonesController < ApplicationController
+end
