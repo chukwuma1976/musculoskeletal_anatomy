@@ -3,15 +3,16 @@ import BoneTableRow from './BonesTableRow';
 import FilterByRegion from './FilterByRegion';
 import FindByName from './FindByName';
 
-function BonesTable({regions, setRegions, bones, setBones}){
+function BonesTable({regions, bones, setBones}){
 
     useEffect(() => {
-        fetch('/regions')
+        fetch('/bones')
         .then(response => response.json())
-        .then(setRegions);
+        .then(setBones);
     }, [])
 
     const [name, setName] = useState("")
+    const [reg, setReg] = useState("All")
     
     const tableHeader = (
         <tr className='header'>
@@ -20,37 +21,14 @@ function BonesTable({regions, setRegions, bones, setBones}){
             <th>Image link</th>
         </tr> 
         )
-
-    function createAllBones(){
-        let allBonesArray = []
-        regions.map(region => {
-            return allBonesArray = [...allBonesArray,...region.bones]
-        })
-        allBonesArray = allBonesArray.sort((a,b) => {
-            const nameA = a.name.toUpperCase()
-            const nameB = b.name.toUpperCase()
-            if (nameA < nameB) return -1;
-            if (nameA > nameB) return 1;
-            return 0;
-        })
-        console.log(allBonesArray)
-        setBones(allBonesArray)
-    }
-    
-    function createRegionBones(id){
-        const identifier = parseInt(id, 10)
-        const rg = regions.find(region => region.id===identifier)
-        setBones(rg.bones)
-    }
     
     function handleRegion(event){
-        const id = event.target.value;
-        if (id === 'All') createAllBones()
-            else createRegionBones(id)
+        setReg(event.target.value)
     }
     
     function displayFilteredBones(name){
-        const filteredBones = bones.filter(bone=>bone.name.toLowerCase().includes(name.toLowerCase()))
+        const filteredByRegion = bones.filter(bone => reg==="All" || reg.includes(`${bone.region_id}`))
+        const filteredBones = filteredByRegion.filter(bone=>bone.name.toLowerCase().includes(name.toLowerCase()))
         const bonesList = filteredBones.map(bone=><BoneTableRow key={bone.id} bone={bone} onDelete={onDelete} onUpdate={onUpdate} />)
         return bonesList
     }
@@ -70,11 +48,13 @@ function BonesTable({regions, setRegions, bones, setBones}){
     return (
         <div>
             <h2>Bones of the Skeleton</h2>
-            <FilterByRegion regions={regions} handleRegion={handleRegion}/>
-            <FindByName setName={setName} structure={"bone"}/>
+            <div className='filter'>
+                <FilterByRegion regions={regions} handleRegion={handleRegion}/>
+                <FindByName setName={setName} structure={"bone"}/>
+            </div>
             <br/>
             <br/>        
-            <table>
+            <table className="anatomy-table">
                 {tableHeader}
                 {displayFilteredBones(name)}
             </table>

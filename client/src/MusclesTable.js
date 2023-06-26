@@ -3,15 +3,17 @@ import MuscleTableRow from './MuscleTableRow';
 import FilterByBodyPart from './FilterByBodyPart';
 import FindByName from './FindByName';
 
-function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
-    
+function MusclesTable({bodyParts, muscles, setMuscles}) {
+
     useEffect(() => {
-        fetch('/bodyparts')
+        fetch('/muscles')
         .then(response => response.json())
-        .then(setBodyParts);
+        .then(setMuscles);
     }, [])
 
     const [name, setName] = useState("")
+
+    const [bp, setBp] = useState("All")
     
     const tableHeader = (
         <tr className='header'>
@@ -25,36 +27,13 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
         </tr> 
         )
 
-    function createAllMuscles(){
-        let allMuscleArray = []
-        bodyParts.map(bodyPart => {
-            return allMuscleArray = [...allMuscleArray,...bodyPart.muscles]
-        })
-        allMuscleArray = allMuscleArray.sort((a,b) => {
-            const nameA = a.name.toUpperCase()
-            const nameB = b.name.toUpperCase()
-            if (nameA < nameB) {return -1;}
-            if (nameA > nameB) {return 1;}
-            return 0;
-        })
-        setMuscles(allMuscleArray)
-    }
-
-    function createBodyPartMuscles(id){
-        const identifier = parseInt(id, 10)
-        const bp = bodyParts.find(bodyPart => bodyPart.id===identifier)
-        setMuscles(bp.muscles)
-    }
-
     function handleBodyPart(event){
-        console.log(event.target.value)
-        const id = event.target.value;
-        if (id === 'All') createAllMuscles()
-            else createBodyPartMuscles(id)
+        setBp(event.target.value)
     }
 
-    function displayFilteredMuscles(name){
-        const filteredMuscles = muscles.filter(muscle => muscle.name.toLowerCase().includes(name.toLowerCase()));
+    function displayFilteredMuscles(){
+        const filteredByBodyPart = muscles.filter(muscle => bp==="All" || bp.includes(`${muscle.bodypart_id}`))
+        const filteredMuscles = filteredByBodyPart.filter(muscle => muscle.name.toLowerCase().includes(name.toLowerCase()));
         const musclesList = filteredMuscles.map(muscle => <MuscleTableRow key={muscle.id} muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />)
         return musclesList
     }
@@ -74,13 +53,15 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
     return(
         <div>
             <h2>Muscles involved in exercise</h2>
-            <FilterByBodyPart bodyParts={bodyParts}  handleBodyPart={handleBodyPart}/>
-            <FindByName setName={setName} structure={"muscle"} />
+            <div className='filter'>
+                <FilterByBodyPart bodyParts={bodyParts}  handleBodyPart={handleBodyPart}/>
+                <FindByName setName={setName} structure={"muscle"} />
+            </div>
             <br/>
             <br/>
-            <table>
+            <table className='anatomy-table'>
                 {tableHeader}
-                {displayFilteredMuscles(name)}
+                {displayFilteredMuscles()}
             </table>
         </div>
     )
