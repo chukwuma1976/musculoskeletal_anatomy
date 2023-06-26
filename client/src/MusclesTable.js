@@ -8,15 +8,10 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
     useEffect(() => {
         fetch('/bodyparts')
         .then(response => response.json())
-        .then(bodyparts => {
-            console.log(bodyparts)
-            setBodyParts(bodyparts)});
+        .then(setBodyParts);
     }, [])
 
     const [name, setName] = useState("")
-    
-    const muscleTableRows = muscles.map(muscle => 
-        <MuscleTableRow key={muscle.id} muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />);
     
     const tableHeader = (
         <tr className='header'>
@@ -47,7 +42,7 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
     }
 
     function createBodyPartMuscles(id){
-        const identifier = parseInt(id)
+        const identifier = parseInt(id, 10)
         console.log(bodyParts, identifier)
         const bp = bodyParts.find(bodyPart => bodyPart.id===identifier)
         console.log(bp)
@@ -60,16 +55,10 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
             else createBodyPartMuscles(id)
     }
 
-    function displayFoundByName(name){
-        if (name!== ""){
-            const filteredMuscles = muscles.filter(muscle => muscle.name.includes(name.toLowerCase()));
-            if (filteredMuscles.length > 0) return (
-                <table>
-                    {tableHeader}
-                    {filteredMuscles.map(muscle => <MuscleTableRow muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />)}                  
-                </table>
-            )
-        } 
+    function displayFilteredMuscles(name){
+        const filteredMuscles = muscles.filter(muscle => muscle.name.toLowerCase().includes(name.toLowerCase()));
+        const musclesList = filteredMuscles.map(muscle => <MuscleTableRow muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />)
+        return musclesList
     }
 
     function onDelete(id){
@@ -90,11 +79,10 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
             <FilterByBodyPart bodyParts={bodyParts}  handleBodyPart={handleBodyPart}/>
             <FindByName setName={setName} structure={"muscle"} />
             <br/>
-            {displayFoundByName(name)}
             <br/>
             <table>
                 {tableHeader}
-                {muscleTableRows}
+                {displayFilteredMuscles(name)}
             </table>
         </div>
     )

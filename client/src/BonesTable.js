@@ -8,15 +8,10 @@ function BonesTable({regions, setRegions, bones, setBones}){
     useEffect(() => {
         fetch('/regions')
         .then(response => response.json())
-        .then(regions => {
-            console.log(regions)
-            setRegions(regions)});
+        .then(setRegions);
     }, [])
 
     const [name, setName] = useState("")
-
-    const boneTableRows = bones.map(bone => 
-        <BoneTableRow key={bone.id} bone={bone} onDelete={onDelete} onUpdate={onUpdate}/>)
     
     const tableHeader = (
         <tr className='header'>
@@ -34,8 +29,8 @@ function BonesTable({regions, setRegions, bones, setBones}){
         allBonesArray = allBonesArray.sort((a,b) => {
             const nameA = a.name.toUpperCase()
             const nameB = b.name.toUpperCase()
-            if (nameA < nameB) {return -1;}
-            if (nameA > nameB) {return 1;}
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
             return 0;
         })
         console.log(allBonesArray)
@@ -43,7 +38,7 @@ function BonesTable({regions, setRegions, bones, setBones}){
     }
     
     function createRegionBones(id){
-        const identifier = parseInt(id)
+        const identifier = parseInt(id, 10)
         console.log(regions, identifier)
         const rg = regions.find(region => region.id===identifier)
         console.log(rg)
@@ -56,16 +51,10 @@ function BonesTable({regions, setRegions, bones, setBones}){
             else createRegionBones(id)
     }
     
-    function displayFoundByName(name){
-        if (name!== ""){
-            const filteredBones = bones.filter(bone => bone.name.includes(name.toLowerCase()));
-            if (filteredBones.length > 0) return (
-                <table>
-                    {tableHeader}
-                    {filteredBones.map(bone => <BoneTableRow bone={bone} onDelete={onDelete} onUpdate={onUpdate} />)}                  
-                </table>
-            )
-        } 
+    function displayFilteredBones(name){
+        const filteredBones = bones.filter(bone=>bone.name.toLowerCase().includes(name.toLowerCase()))
+        const bonesList = filteredBones.map(bone=><BoneTableRow bone={bone} onDelete={onDelete} onUpdate={onUpdate} />)
+        return bonesList
     }
 
     function onDelete(id){
@@ -86,11 +75,10 @@ function BonesTable({regions, setRegions, bones, setBones}){
             <FilterByRegion regions={regions} handleRegion={handleRegion}/>
             <FindByName setName={setName} structure={"bone"}/>
             <br/>
-            {displayFoundByName(name)}   
             <br/>        
             <table>
                 {tableHeader}
-                {boneTableRows}
+                {displayFilteredBones(name)}
             </table>
         </div>
     )
