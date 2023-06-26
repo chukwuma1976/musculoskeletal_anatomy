@@ -24,7 +24,7 @@ class RegionsController < ApplicationController
     def destroy
         region = Region.find(params[:id])
         region.destroy
-        head: :no_content
+        head :no_content
     end
 
     private

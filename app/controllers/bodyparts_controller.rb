@@ -24,7 +24,7 @@ class BodypartsController < ApplicationController
     def destroy
         bodypart = Bodypart.find(params[:id])
         bodypart.destroy
-        head: :no_content
+        head :no_content
     end
 
     private

@@ -16,11 +16,11 @@ function App() {
   const [bones, setBones] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:9292/muscles`)
+    fetch(`/muscles`)
     .then(response => response.json())
     .then(muscles => setMuscles(muscles));
 
-    fetch(`http://localhost:9292/bones`)
+    fetch(`/bones`)
     .then(response => response.json())
     .then(bones => setBones(bones));
 

@@ -24,7 +24,7 @@ class MusclesController < ApplicationController
     def destroy
         muscle = Muscle.find(params[:id])
         muscle.destroy
-        head: :no_content
+        head :no_content
     end
 
     private

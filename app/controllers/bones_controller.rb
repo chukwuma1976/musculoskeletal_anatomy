@@ -25,7 +25,7 @@ class BonesController < ApplicationController
     def destroy
         bone = Bone.find(params[:id])
         bone.destroy
-        head: :no_content
+        head :no_content
     end
 
     private
