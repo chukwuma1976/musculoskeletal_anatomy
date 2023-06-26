@@ -60,14 +60,12 @@ function App() {
         <Route path="/add_muscle" 
           element={<AddMuscle 
             bodyParts={bodyParts} 
-            setBodyParts={setBodyParts} 
             muscles={muscles} 
             setMuscles={setMuscles} />} 
         />
         <Route path="/add_bone" 
           element={<AddBone 
             regions={regions} 
-            setRegions={setRegions} 
             bones={bones} 
             setBones={setBones} />} 
         />

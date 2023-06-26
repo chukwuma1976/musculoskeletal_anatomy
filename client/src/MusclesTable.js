@@ -47,6 +47,7 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
     }
 
     function handleBodyPart(event){
+        console.log(event.target.value)
         const id = event.target.value;
         if (id === 'All') createAllMuscles()
             else createBodyPartMuscles(id)

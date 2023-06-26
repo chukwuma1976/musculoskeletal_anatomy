@@ -33,7 +33,8 @@ regions = [
     {name: "Thorax"},
     {name: "Pelvis"},
     {name: "Upper Extremity"},
-    {name: "Lower Extremity"}
+    {name: "Lower Extremity"},
+    {name: "Miscellaneous"}
 ]
 
 regions.each do |region|

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AddSection from "./AddSection";
-import DeleteSection from "./DeleteSection";
 
-function AddBone({regions, setRegions, bones, setBones}) {
+function AddBone({regions, bones, setBones}) {
     const [errors, setErrors] = useState(null)
     const [newBone, setNewBone] = useState({
         name: "",
@@ -14,10 +12,6 @@ function AddBone({regions, setRegions, bones, setBones}) {
 
     const {name, description, url, region_id} = newBone
     const navigate = useNavigate()
-
-    function handleArray(element) {
-        setRegions([...regions, element])
-    }
     
     function handleChange(event){
         setNewBone(newBone=>({...newBone, [event.target.name]:event.target.value}))
@@ -45,10 +39,6 @@ function AddBone({regions, setRegions, bones, setBones}) {
 
     return (
         <div className="add_body_part">
-            <h4>You can choose to add a new region of the body</h4>
-            <AddSection parameter={"regions"} handleArray={handleArray} />
-            <h4>You can also delete a region of the body</h4>
-            <DeleteSection parameter={"regions"} updateSection={setRegions} sections={regions} />
             <h3>Add a Bone by entering the information below</h3>
             {errors? errors.map(error=><p>{error}</p>) : null}
             <form onSubmit={handleSubmit}>

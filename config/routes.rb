@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :users
   resources :muscles
   resources :bones
-  resources :regions do
+  resources :regions, only: [:index, :show] do
     resources :bones, only: :create
   end
-  resources :bodyparts do
+  resources :bodyparts, only: [:index, :show] do
     resources :muscles, only: :create
   end
 

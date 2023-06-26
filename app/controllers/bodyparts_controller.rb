@@ -10,27 +10,4 @@ class BodypartsController < ApplicationController
         render json: bodypart, status: :ok
     end
 
-    def create
-        bodypart = Bodypart.create!(bodypart_params)
-        render json: bodypart, status: :accepted
-    end
-
-    def update
-        bodypart = Bodypart.find(params[:id])
-        bodypart.update!(bodypart_params)
-        render json: bodypart, status: :updated
-    end
-
-    def destroy
-        bodypart = Bodypart.find(params[:id])
-        bodypart.destroy
-        head :no_content
-    end
-
-    private
-
-    def bodypart_params
-        params.permit(:name)
-    end
-
 end
