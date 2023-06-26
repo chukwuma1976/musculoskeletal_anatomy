@@ -8,11 +8,11 @@ function Home() {
             <h3>Here we take a detailed look at the muscles responsible for motion.</h3>
             <h3>We also look at the skeletal structure responsible for supporting all this muscle.</h3>
             <div className="home-navlink">
-                <NavLink to="/muscles" style={{color: 'blue'}}>
+                <NavLink to="/muscles_" style={{color: 'blue'}}>
                     Click here to look at some muscles 
                 </NavLink>
                 <br/>
-                <NavLink to="/bones" style={{color: 'blue'}}>
+                <NavLink to="/bones_" style={{color: 'blue'}}>
                     Or click here to see some bones
                 </NavLink>
                 <br/>

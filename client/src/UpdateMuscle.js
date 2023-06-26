@@ -54,8 +54,8 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
                 <label>Action </label>
                 <input 
                     type="text" 
-                    name="action" 
-                    placeholder="action" 
+                    name="actions" 
+                    placeholder="actions" 
                     value={actions} 
                     onChange={handleChange}
                 />

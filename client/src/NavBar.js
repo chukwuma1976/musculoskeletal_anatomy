@@ -12,14 +12,14 @@ function NavBar(){
             Home Page
           </NavLink>
           <NavLink
-            to="/muscles"
+            to="/muscles_"
             style={({isActive}) => ({background: isActive ? 'red' : ''})}
             className="navbar"
           >
             Muscles
           </NavLink>
           <NavLink
-            to="/bones"
+            to="/bones_"
             style={({isActive}) => ({background: isActive ? 'red' : ''})}
             className="navbar"
           >

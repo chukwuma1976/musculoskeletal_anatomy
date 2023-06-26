@@ -27,7 +27,7 @@ function AddBone({regions, bones, setBones}) {
             .then(res=>{
                 if (res.ok){
                     res.json().then(bone=>setBones([...bones, bone]))
-                    navigate("/bones")
+                    navigate("/bones_")
                 } else {
                     res.json().then(errors=>setErrors(errors.errors))
                 }

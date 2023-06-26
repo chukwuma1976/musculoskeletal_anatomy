@@ -17,12 +17,10 @@ function AddMuscle({bodyParts, muscles, setMuscles}) {
     const navigate = useNavigate()
 
     function handleChange(event){
-        console.log("name: ", event.target.name, "value: ", event.target.value)
         setNewMuscle(newMuscle=>({...newMuscle, [event.target.name]:event.target.value}))
     }
     function handleSubmit(event){
         event.preventDefault()
-        console.log(newMuscle)
 
         fetch(`/bodyparts/${bodypart_id}/muscles`, {
                 method: "POST",
@@ -32,7 +30,7 @@ function AddMuscle({bodyParts, muscles, setMuscles}) {
             .then(res=>{
                 if (res.ok){
                     res.json().then(muscle=>setMuscles([...muscles, muscle]))
-                    navigate("/muscles")
+                    navigate("/muscles_")
                 } else {
                     res.json().then(errors=>setErrors(errors.errors))
                 }
