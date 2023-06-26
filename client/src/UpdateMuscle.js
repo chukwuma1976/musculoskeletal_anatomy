@@ -17,7 +17,7 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
     }
     function handleSubmit(event){
         event.preventDefault()
-        fetch(`http://localhost:9292/muscles/${muscle.id}`, {
+        fetch(`/muscles/${muscle.id}`, {
                 method: "PATCH",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newMuscle)

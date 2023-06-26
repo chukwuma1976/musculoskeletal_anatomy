@@ -24,7 +24,7 @@ function AddBone({regions, setRegions, bones, setBones}) {
     function handleSubmit(event){
         event.preventDefault()
 
-        fetch(`http://localhost:9292/regions/${region_id}/bones`, {
+        fetch(`/regions/${region_id}/bones`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBone)

@@ -6,7 +6,7 @@ import FindByName from './FindByName';
 function BonesTable({regions, setRegions, bones, setBones}){
 
     useEffect(() => {
-        fetch('http://localhost:9292/regions')
+        fetch('/regions')
         .then(response => response.json())
         .then(regions => {
             console.log(regions)

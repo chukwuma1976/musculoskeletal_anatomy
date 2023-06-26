@@ -11,7 +11,7 @@ function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
     }
     function handleSubmit(event){
         event.preventDefault()
-        fetch(`http://localhost:9292/bones/${bone.id}`, {
+        fetch(`/bones/${bone.id}`, {
                 method: "PATCH",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBone)

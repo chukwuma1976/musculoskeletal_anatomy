@@ -27,7 +27,7 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
     function handleSubmit(event){
         event.preventDefault()
 
-        fetch(`http://localhost:9292/bodyparts/${bodypart_id}/muscles`, {
+        fetch(`/bodyparts/${bodypart_id}/muscles`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newMuscle)

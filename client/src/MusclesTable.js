@@ -6,7 +6,7 @@ import FindByName from './FindByName';
 function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
     
     useEffect(() => {
-        fetch('http://localhost:9292/bodyparts')
+        fetch('/bodyparts')
         .then(response => response.json())
         .then(bodyparts => {
             console.log(bodyparts)

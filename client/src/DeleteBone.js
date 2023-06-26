@@ -3,7 +3,7 @@ import React from "react";
 function DeleteBone({bone, showPopUp, closePopUp, onDelete}) {
     const {id, name} = bone;
     function removeBone(){
-        fetch(`http://localhost:9292/bones/${id}`, {
+        fetch(`/bones/${id}`, {
             method: "DELETE"
         })
         .then(res=>res.json())

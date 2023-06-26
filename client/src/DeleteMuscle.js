@@ -3,7 +3,7 @@ import React from "react";
 function DeleteMuscle({muscle, showPopUp, closePopUp, onDelete}){
     const {name, id} = muscle;
     function removeMuscle(){
-        fetch(`http://localhost:9292/muscles/${id}`, {
+        fetch(`/muscles/${id}`, {
             method: "DELETE"
         })
         .then(res=>res.json())

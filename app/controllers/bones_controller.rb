@@ -1,5 +1,5 @@
 class BonesController < ApplicationController
-    
+
     def index
         bones = Bone.all.order(:name)
         render json: bones, status: :ok
@@ -11,13 +11,14 @@ class BonesController < ApplicationController
     end
 
     def create
-        bone = Bone.create(bone_params)
+        region = Region.find(params[:region_id])
+        bone = region.bones.create!(bone_params)
         render json: bone, status: :created
     end
 
     def update
         bone = Bone.find(params[:id])
-        bone.update(bone_params)
+        bone.update!(bone_params)
         render json: bone, status: :updated
     end
 

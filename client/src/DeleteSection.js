@@ -11,7 +11,7 @@ function DeleteSection({parameter, updateSection, sections}) {
 
     function handleDelete(event) {
         event.preventDefault()
-        fetch(`http://localhost:9292/${parameter}/${id}`, {
+        fetch(`/${parameter}/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
