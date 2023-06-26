@@ -14,11 +14,10 @@ function DeleteSection({parameter, updateSection, sections}) {
         fetch(`/${parameter}/${id}`, {
             method: 'DELETE'
         })
-        .then(res => res.json())
-        .then(()=>onDeleteSection(id))    
+        onDeleteSection(id)   
     }
     function onDeleteSection() {
-        fetch(`http://localhost:9292/${parameter}`)
+        fetch(`/${parameter}`)
         .then(res => res.json())
         .then(data => updateSection(data))
         setShowPopUp(true)

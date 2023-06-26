@@ -4,6 +4,7 @@ import AddSection from "./AddSection";
 import DeleteSection from "./DeleteSection";
 
 function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
+    const [errors, setErrors] = useState(null)
     const [newMuscle, setNewMuscle] = useState({
         name: "",
         origin: "",
@@ -22,23 +23,30 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
     }
 
     function handleChange(event){
+        console.log("name: ", event.target.name, "value: ", event.target.value)
         setNewMuscle(newMuscle=>({...newMuscle, [event.target.name]:event.target.value}))
     }
     function handleSubmit(event){
         event.preventDefault()
+        console.log(newMuscle)
 
         fetch(`/bodyparts/${bodypart_id}/muscles`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newMuscle)
             })
-            .then(res=>res.json())
-            .then(muscle=>setMuscles([...muscles, muscle]))
-        navigate("/muscles")        
+            .then(res=>{
+                if (res.ok){
+                    res.json().then(muscle=>setMuscles([...muscles, muscle]))
+                    navigate("/muscles")
+                } else {
+                    res.json().then(errors=>setErrors(errors.errors))
+                }
+            })                
     }
 
     const bodyPartsDropDownItems = bodyParts.map(bodyPart => 
-        <option key={bodyPart.name} value={bodyPart.id} >{bodyPart.name}</option>)
+        <option key={bodyPart.id} value={bodyPart.id} >{bodyPart.name}</option>)
 
     return (
         <div className="add_body_part">
@@ -47,6 +55,7 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
             <h4>You can also delete a body part</h4>
             <DeleteSection parameter={"bodyparts"} updateSection={setBodyParts} sections={bodyParts} />
             <h3>Add a muscle by entering the information below</h3>
+            {errors? errors.map(error=><p>{error}</p>): null}
             <form onSubmit={handleSubmit}>
                 <label>Body Part</label>
                 <select name="bodypart_id" onChange={handleChange}>

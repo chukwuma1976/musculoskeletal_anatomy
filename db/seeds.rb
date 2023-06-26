@@ -58,7 +58,7 @@ shoulder_muscles = [
         action: "abducts arm; anterior fibers flex & medially rotate the arm; posterior fibers extend & laterally rotate the arm",
         innervation: "axillary nerve (C5,6)",
         blood_supply: "posterior circumflex humeral a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2014/02/deltoids-muscle-attachments.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2014/02/deltoids-muscle-attachments.jpg"
     },
     {
         name: "subscapularis",
@@ -67,7 +67,7 @@ shoulder_muscles = [
         action: "medially rotates the arm; assists extention of the arm",
         innervation: "upper and lower subscapular nerves (C5,6)",
         blood_supply: "subscapular a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2014/11/infraspinatus-mom-h.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2014/12/subscapularis-attachments.jpg"
     },
     {
         name: "supraspinatus",
@@ -76,7 +76,7 @@ shoulder_muscles = [
         action: "abducts the arm (initiates abduction)",
         innervation: "suprascapular nerve (C5,6) ",
         blood_supply: "suprascapular a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2014/10/supraspinatus-muscle-attachments.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2014/10/supraspinatus-muscle-attachments.jpg"
     },
     {
         name: "teres minor",
@@ -85,7 +85,7 @@ shoulder_muscles = [
         action: "laterally rotates the arm",
         innervation: "axillary nerve (C5,6)",
         blood_supply: "circumflex scapular a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2014/11/teres-minor-attachments.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2014/11/teres-minor-attachments.jpg"
     },    {
         name: "infraspinatus",
         origin: "infraspinous fossa",
@@ -93,7 +93,7 @@ shoulder_muscles = [
         action: "laterally rotates the arm",
         innervation: "suprascapular nerve",
         blood_supply: "suprascapular a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2014/11/infraspinatrus-attachments.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2014/11/infraspinatrus-attachments.jpg"
     }
 ]
 
@@ -127,7 +127,7 @@ chest_muscles = [
         action: "draws the scapula forward, medialward, and downward",
         innervation: "medial pectoral nerve (C8, T1)",
         blood_supply: "pectoral branch of the thoracoacromial trunk",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2015/05/pectoralis-minor-muscle-attachment.jpg"
+        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-4af294e/wp-content/uploads/2015/05/pectoralis-minor-muscle-attachment.jpg"
     },    {
         name: "coracobrachialis",
         origin: "coracoid process of the scapula",
@@ -135,7 +135,7 @@ chest_muscles = [
         action: "flexes and adducts the arm",
         innervation: "musculocutaneous nerve (C5,6)",
         blood_supply: "brachial a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2020/12/coracobrachialis-attachments.jpg"
+        url: "https://teachmeanatomy.info/wp-content/uploads/Coracobrachialis-Biceps-and-Brachialis-Muscles.jpg"
     }
 ]
 
@@ -160,7 +160,7 @@ back_muscles = [
         action: "extends and laterally bends the trunk, neck and head",
         innervation: "segmentally innervated by dorsal primary rami of spinal nerves C1-S5",
         blood_supply: "supplied segmentally by: deep cervical a., posterior intercostal aa., subcostal aa., lumbar aa.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2018/05/erector-spinae-muscles-1000px.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2018/05/erector-spinae-muscle-mom-h.jpg"
     },    
     {
         name: "latissimus dorsi",
@@ -169,7 +169,7 @@ back_muscles = [
         action: "extends the arm and rotates the arm medially",
         innervation: "thoracodorsal nerve (C7,8)",
         blood_supply: "thoracodorsal a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2015/03/latissimus-dorsi-attachments.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2015/03/latissimus-dorsi-attachments.jpg"
     },
     {
         name: "rhomboid major",
@@ -178,7 +178,7 @@ back_muscles = [
         action: "retracts, elevates and rotates the scapula inferiorly",
         innervation: "dorsal scapular nerve (C5)",
         blood_supply: "dorsal scapular a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2015/04/rhomboid-muscles-attachments.jpg"
+        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-4af294e/wp-content/uploads/2015/04/rhomboid-muscles-attachments.jpg"
     },    
     {
         name: "rhomboid minor",
@@ -196,7 +196,7 @@ back_muscles = [
         action: "it draws the scapula forward; the inferior fibers rotate the scapula superiorly",
         innervation: "long thoracic nerve ",
         blood_supply: "lateral thoracic a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2020/08/serratus-anterior-muscle.jpg"
+        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-4af294e/wp-content/uploads/2020/08/serratus-anterior-muscle.jpg"
     },    
     {
         name: "trapezius",
@@ -214,7 +214,7 @@ back_muscles = [
         action: "adducts the arm, medially rotates the arm, assists in arm extension",
         innervation: "lower subscapular nerve (C5,6)",
         blood_supply: "circumflex scapular a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2016/01/teres-major-muscle-location.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2016/01/teres-major-muscle-location.jpg"
     }
 ]
 
@@ -239,7 +239,7 @@ arms_muscles = [
         action: "flexes the forearm, flexes arm (long head), supinates",
         innervation: "musculocutaneous nerve (C5,6)",
         blood_supply: "brachial a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2018/05/Biceps-brachii-muscle-attachments.png"
+        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-4af294e/wp-content/uploads/2018/05/Biceps-brachii-muscle-plain.png"
     },   
     {
         name: "brachialis",
@@ -248,7 +248,7 @@ arms_muscles = [
         action: "flexes the forearm",
         innervation: "musculocutaneous nerve (C5,6)",
         blood_supply: "brachial a., radial recurrent a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2015/10/brachialis-muscle-attachments.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2015/10/brachialis-muscle-location.jpg"
     },   
     {
         name: "brachioradialis",
@@ -266,7 +266,7 @@ arms_muscles = [
         action: "extends the forearm; the long head extends and adducts arm",
         innervation: "radial nerve",
         blood_supply: "deep brachial (profunda brachii) a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2018/05/triceps-brachii-muscle-attachments.png"
+        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-4af294e/wp-content/uploads/2018/05/triceps-brachii-muscle-plain.png"
     }
 ]
 
@@ -318,7 +318,7 @@ abdominals_muscles = [
         action: "flexes and laterally bends trunk",
         innervation: "intercostal nerves 7-11, subcostal, iliohypogastric and ilioinguinal nerves",
         blood_supply: "musculophrenic a., superior epigastric a., intercostal aa. 7-11, subcostal a., lumbar aa., superficial circumflex iliac a., deep circumflex iliac a., superficial epigastric a., inferior epigastric a., superficial external pudendal a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2018/03/transverse-abdominis-attachments.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2018/03/transverse-abdominis-attachments.jpg"
     }
 ]
 
@@ -343,7 +343,7 @@ glutes_muscles = [
         action: "extends the thigh; laterally rotates the femur",
         innervation: "inferior gluteal nerve",
         blood_supply: "superior and inferior gluteal aa.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2018/05/gluteus-maximus-muscle.png"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2018/05/gluteus-maximus-muscle.png"
     },
     {
         name: "gluteus medius",
@@ -352,7 +352,7 @@ glutes_muscles = [
         action: "abducts the femur; medially rotates the thigh",
         innervation: "superior gluteal nerve",
         blood_supply: "superior gluteal a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2018/05/gluteus-medius-muscle.png"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2018/05/gluteus-medius-muscle.png"
     },
     {
         name: "gluteus minimus",
@@ -361,7 +361,7 @@ glutes_muscles = [
         action: "abducts the femur; medially rotates the thigh",
         innervation: "superior gluteal nerve",
         blood_supply: "superior gluteal a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2014/03/gluteus-minimus-muscle-attachments.jpg"
+        url: "https://www.yoganatomy.com/wp-content/uploads/2014/03/gluteus-minimus-muscle-attachments.jpg"
     }
 ]
 
@@ -438,7 +438,7 @@ hamstrings_muscles = [
         action: "extends the thigh, flexes the leg",
         innervation: "long head: tibial nerve; short head: common fibular (peroneal) nerve",
         blood_supply: "perforating branches of the deep femoral a.",
-        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-5038be8/wp-content/uploads/2014/09/hamstrings-muscles-location.jpg"
+        url: "https://cdn-aolkg.nitrocdn.com/JEsNUzsMoDdLqhSXkopLhNFWnBniacqf/assets/images/optimized/rev-4af294e/wp-content/uploads/2014/09/hamstrings-muscles-location.jpg"
     },
     {
         name: "semimembranosus",

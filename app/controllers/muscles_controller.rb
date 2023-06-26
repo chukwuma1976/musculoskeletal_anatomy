@@ -10,7 +10,7 @@ class MusclesController < ApplicationController
     end
 
     def create
-        bodypart = Bodypart.find(params[bodypart_id])
+        bodypart = Bodypart.find(params[:bodypart_id])
         muscle = bodypart.muscles.create!(muscle_params)
         render json: muscle, status: :created
     end

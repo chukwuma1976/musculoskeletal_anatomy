@@ -4,6 +4,7 @@ import AddSection from "./AddSection";
 import DeleteSection from "./DeleteSection";
 
 function AddBone({regions, setRegions, bones, setBones}) {
+    const [errors, setErrors] = useState(null)
     const [newBone, setNewBone] = useState({
         name: "",
         description: "",
@@ -29,9 +30,14 @@ function AddBone({regions, setRegions, bones, setBones}) {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBone)
             }) 
-            .then(res=>res.json())
-            .then(bone=>setBones([...bones, bone]))
-        navigate("/bones")        
+            .then(res=>{
+                if (res.ok){
+                    res.json().then(bone=>setBones([...bones, bone]))
+                    navigate("/bones")
+                } else {
+                    res.json().then(errors=>setErrors(errors.errors))
+                }
+            })          
     }
 
     const regionsDropDownItems = regions.map(region => 
@@ -44,6 +50,7 @@ function AddBone({regions, setRegions, bones, setBones}) {
             <h4>You can also delete a region of the body</h4>
             <DeleteSection parameter={"regions"} updateSection={setRegions} sections={regions} />
             <h3>Add a Bone by entering the information below</h3>
+            {errors? errors.map(error=><p>{error}</p>) : null}
             <form onSubmit={handleSubmit}>
                 <label>Region</label>
                 <select name="region_id" onChange={handleChange}>

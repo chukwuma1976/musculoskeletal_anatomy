@@ -30,7 +30,7 @@ class BonesController < ApplicationController
 
     private
 
-    def bones_params
+    def bone_params
         params.permit(:name, :description, :url, :region_id)
     end
 

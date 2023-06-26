@@ -27,6 +27,18 @@ function App() {
     .then(bones => setBones(bones));
   }, [])
 
+  useEffect(() => {
+    fetch('/bodyparts')
+    .then(response => response.json())
+    .then(setBodyParts);
+  }, [])
+
+  useEffect(() => {
+    fetch('/regions')
+    .then(response => response.json())
+    .then(setRegions);
+}, [])
+
   return (
     <div>
       <NavBar />

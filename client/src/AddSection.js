@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PopUp from './PopUp'
 
 function AddSection({parameter, handleArray}) {
-
+    const [errors, setErrors] = useState(null)
     const [entry, setEntry] = useState({name: ""})
     const [showPopUp, setShowPopUp] = useState(false)
     
@@ -17,13 +17,21 @@ function AddSection({parameter, handleArray}) {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(entry)
         })
-        .then(res => res.json())
-        .then(data => handleArray(data))
-        setShowPopUp(true)
+        .then(res => {
+            if (res.ok){
+                res.json().then(data => handleArray(data))
+                setShowPopUp(true)
+            } else {
+                res.json().then(errors => setErrors(errors.errors))
+            }
+        })
+        
+        
     }
   
   return (
     <div>
+        {errors ? errors.map(error => <p>{error}</p>) : null}
         <form onSubmit={handleSubmit}>
             <label>Enter Text </label>
             <input type="text" value={entry.name} onChange={handleChange} />

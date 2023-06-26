@@ -6,8 +6,7 @@ function DeleteMuscle({muscle, showPopUp, closePopUp, onDelete}){
         fetch(`/muscles/${id}`, {
             method: "DELETE"
         })
-        .then(res=>res.json())
-        .then(()=>onDelete(id))
+        onDelete(id)
         closePopUp();
     }
     if (!showPopUp) return null;

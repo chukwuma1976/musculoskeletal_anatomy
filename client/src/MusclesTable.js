@@ -37,15 +37,12 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
             if (nameA > nameB) {return 1;}
             return 0;
         })
-        console.log(allMuscleArray)
         setMuscles(allMuscleArray)
     }
 
     function createBodyPartMuscles(id){
         const identifier = parseInt(id, 10)
-        console.log(bodyParts, identifier)
         const bp = bodyParts.find(bodyPart => bodyPart.id===identifier)
-        console.log(bp)
         setMuscles(bp.muscles)
     }
 
@@ -57,7 +54,7 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
 
     function displayFilteredMuscles(name){
         const filteredMuscles = muscles.filter(muscle => muscle.name.toLowerCase().includes(name.toLowerCase()));
-        const musclesList = filteredMuscles.map(muscle => <MuscleTableRow muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />)
+        const musclesList = filteredMuscles.map(muscle => <MuscleTableRow key={muscle.id} muscle={muscle} onDelete={onDelete} onUpdate={onUpdate} />)
         return musclesList
     }
 

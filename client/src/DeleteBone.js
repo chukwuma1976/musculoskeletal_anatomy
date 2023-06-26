@@ -6,8 +6,8 @@ function DeleteBone({bone, showPopUp, closePopUp, onDelete}) {
         fetch(`/bones/${id}`, {
             method: "DELETE"
         })
-        .then(res=>res.json())
-        .then(()=>onDelete(id))
+        onDelete(id)
+        closePopUp();
     }
 
     if (!showPopUp) return null;

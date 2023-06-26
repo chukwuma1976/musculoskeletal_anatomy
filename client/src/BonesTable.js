@@ -39,9 +39,7 @@ function BonesTable({regions, setRegions, bones, setBones}){
     
     function createRegionBones(id){
         const identifier = parseInt(id, 10)
-        console.log(regions, identifier)
         const rg = regions.find(region => region.id===identifier)
-        console.log(rg)
         setBones(rg.bones)
     }
     
@@ -53,7 +51,7 @@ function BonesTable({regions, setRegions, bones, setBones}){
     
     function displayFilteredBones(name){
         const filteredBones = bones.filter(bone=>bone.name.toLowerCase().includes(name.toLowerCase()))
-        const bonesList = filteredBones.map(bone=><BoneTableRow bone={bone} onDelete={onDelete} onUpdate={onUpdate} />)
+        const bonesList = filteredBones.map(bone=><BoneTableRow key={bone.id} bone={bone} onDelete={onDelete} onUpdate={onUpdate} />)
         return bonesList
     }
 
