@@ -12,7 +12,7 @@ class RegionsController < ApplicationController
 
     def create
         region = Region.create!(region_params)
-        render json: region, status: :created
+        render json: region, status: :accepted
     end
 
     def update

@@ -19,7 +19,7 @@ class BonesController < ApplicationController
     def update
         bone = Bone.find(params[:id])
         bone.update!(bone_params)
-        render json: bone, status: :updated
+        render json: bone, status: :accepted
     end
 
     def destroy

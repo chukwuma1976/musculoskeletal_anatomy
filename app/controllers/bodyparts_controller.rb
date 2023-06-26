@@ -12,7 +12,7 @@ class BodypartsController < ApplicationController
 
     def create
         bodypart = Bodypart.create!(bodypart_params)
-        render json: bodypart, status: :created
+        render json: bodypart, status: :accepted
     end
 
     def update

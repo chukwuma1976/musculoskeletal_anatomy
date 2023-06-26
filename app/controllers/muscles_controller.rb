@@ -18,7 +18,7 @@ class MusclesController < ApplicationController
     def update
         muscle = Muscle.find(params[:id])
         muscle.update!(muscle_params)
-        render json: muscle, status: :updated
+        render json: muscle, status: :accepted
     end
 
     def destroy
@@ -29,7 +29,7 @@ class MusclesController < ApplicationController
 
     private
 
-    def muscles_params
+    def muscle_params
         params.permit(:name, :origin, :insertion, :action, :innervation, :blood_supply, :url, :bodypart_id)
     end
 end
