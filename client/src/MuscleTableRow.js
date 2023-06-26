@@ -4,7 +4,7 @@ import UpdateMuscle from './UpdateMuscle';
 import DeleteMuscle from './DeleteMuscle';
 
 function MuscleTableRow({muscle, onDelete, onUpdate}) {
-    const {name, origin, insertion, action, innervation, blood_supply, url} = muscle
+    const {name, origin, insertion, actions, innervation, blood_supply, url} = muscle
     const [showPopUp, setShowPopUp] = useState(false)
     const [showEdit, setShowEdit] = useState(false)
     const [showDelete, setShowDelete] = useState(false)
@@ -31,7 +31,7 @@ function MuscleTableRow({muscle, onDelete, onUpdate}) {
             </td>
             <td>{origin}</td>
             <td>{insertion}</td>
-            <td>{action}</td>
+            <td>{actions}</td>
             <td>{innervation}</td>
             <td>{blood_supply}</td>
             <td>

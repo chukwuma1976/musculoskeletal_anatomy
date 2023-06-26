@@ -30,6 +30,6 @@ class MusclesController < ApplicationController
     private
 
     def muscle_params
-        params.permit(:name, :origin, :insertion, :action, :innervation, :blood_supply, :url, :bodypart_id)
+        params.permit(:name, :origin, :insertion, :actions, :innervation, :blood_supply, :url, :bodypart_id)
     end
 end

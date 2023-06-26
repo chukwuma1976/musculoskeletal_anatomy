@@ -9,13 +9,13 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
         name: "",
         origin: "",
         insertion: "",
-        action: "",
+        actions: "",
         innervation: "",
         blood_supply: "",
         url: "",
         bodypart_id: ""
     })
-    const {name, origin, insertion, action, innervation, blood_supply, url, bodypart_id} = newMuscle
+    const {name, origin, insertion, actions, innervation, blood_supply, url, bodypart_id} = newMuscle
     const navigate = useNavigate()
 
     function handleArray(element){
@@ -93,9 +93,9 @@ function AddMuscle({bodyParts, setBodyParts, muscles, setMuscles}) {
                 <label>Action </label>
                 <input 
                     type="text" 
-                    name="action" 
-                    placeholder="action" 
-                    value={action} 
+                    name="actions" 
+                    placeholder="actions" 
+                    value={actions} 
                     onChange={handleChange}
                 />
                 <br/>

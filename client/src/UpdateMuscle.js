@@ -5,12 +5,12 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
     const [newMuscle, setNewMuscle] = useState({
         origin: muscle.origin,
         insertion: muscle.insertion,
-        action: muscle.action,
+        actions: muscle.actions,
         innervation: muscle.innervation,
         blood_supply: muscle.blood_supply,
         url: muscle.url
     })
-    const {origin, insertion, action, innervation, blood_supply, url} = newMuscle
+    const {origin, insertion, actions, innervation, blood_supply, url} = newMuscle
 
     function handleChange(event){
         setNewMuscle(newMuscle=>({...newMuscle, [event.target.name]:event.target.value}))
@@ -56,7 +56,7 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
                     type="text" 
                     name="action" 
                     placeholder="action" 
-                    value={action} 
+                    value={actions} 
                     onChange={handleChange}
                 />
                 <br/>
