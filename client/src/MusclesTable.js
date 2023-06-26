@@ -33,7 +33,7 @@ function MusclesTable({bodyParts, setBodyParts, muscles, setMuscles}) {
     function createAllMuscles(){
         let allMuscleArray = []
         bodyParts.map(bodyPart => {
-            allMuscleArray = [...allMuscleArray,...bodyPart.muscles]
+            return allMuscleArray = [...allMuscleArray,...bodyPart.muscles]
         })
         allMuscleArray = allMuscleArray.sort((a,b) => {
             const nameA = a.name.toUpperCase()

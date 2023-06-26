@@ -19,11 +19,12 @@ function App() {
     fetch(`/muscles`)
     .then(response => response.json())
     .then(muscles => setMuscles(muscles));
+  }, [])
 
+  useEffect(()=>{
     fetch(`/bones`)
     .then(response => response.json())
     .then(bones => setBones(bones));
-
   }, [])
 
   return (

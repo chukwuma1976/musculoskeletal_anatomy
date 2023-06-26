@@ -29,7 +29,7 @@ function BonesTable({regions, setRegions, bones, setBones}){
     function createAllBones(){
         let allBonesArray = []
         regions.map(region => {
-            allBonesArray = [...allBonesArray,...region.bones]
+            return allBonesArray = [...allBonesArray,...region.bones]
         })
         allBonesArray = allBonesArray.sort((a,b) => {
             const nameA = a.name.toUpperCase()
