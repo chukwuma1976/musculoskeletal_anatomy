@@ -8,8 +8,7 @@ function SignOut() {
         fetch('/logout', {
             method: 'DELETE'
         })
-        .then(res=>res.json())
-        .then(()=>setUser(null))
+        setUser(null)
     }
 
     return (

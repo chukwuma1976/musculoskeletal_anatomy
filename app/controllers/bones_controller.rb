@@ -28,14 +28,6 @@ class BonesController < ApplicationController
         head :no_content
     end
 
-    def seed_bones
-        bones = Bone.all
-        bones.each do |bone|
-            current_user.bones << bone
-        end
-        render json: current_user.bones, status: :created
-    end
-
     private
 
     def bone_params

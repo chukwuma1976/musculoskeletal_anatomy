@@ -19,17 +19,6 @@ function UserProvider({children}) {
         })
     }, [])
 
-    function seedMuscles(){
-      fetch('/seed_muscles')
-      .then(res=>res.json())
-      .then(setMuscles)
-  }
-  function seedBones(){
-      fetch('/seed_bones')
-      .then(res=>res.json())
-      .then(setBones)
-  }
-
     useEffect(() => {
       fetch(`/muscles`)
       .then(response => response.json())
@@ -60,8 +49,7 @@ function UserProvider({children}) {
             regions, setRegions,
             bodyParts, setBodyParts,
             muscles, setMuscles,
-            bones, setBones,
-            seedBones, seedMuscles
+            bones, setBones
         }}>
             {children}
         </UserContext.Provider>

@@ -27,14 +27,6 @@ class MusclesController < ApplicationController
         head :no_content
     end
 
-    def seed_muscles
-        muscles = Muscle.all
-        muscles.each do |muscle|
-            current_user.muscles << muscle
-        end
-        render json: current_user.muscles, status: :created
-    end
-
     private
 
     def muscle_params

@@ -1,9 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "./User";
 
 function SignUpForm({ onLogin }) {
-    const { seedMuscles, seedBones} = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -36,8 +34,6 @@ function SignUpForm({ onLogin }) {
         r.json().then((data) => setErrors(data.error));
       }
     });
-    seedBones();
-    seedMuscles();
   }
 
   return (
