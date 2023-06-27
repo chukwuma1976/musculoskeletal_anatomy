@@ -39,6 +39,13 @@ function NavBar(){
           >
             Add A Bone
           </NavLink>
+          <NavLink
+            to="/signout"
+            style={({isActive}) => ({background: isActive ? 'red' : ''})}
+            className="navbar"
+          >
+            SignOut
+          </NavLink>
         </div>
       );
 }

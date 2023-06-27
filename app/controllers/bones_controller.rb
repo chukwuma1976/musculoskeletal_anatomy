@@ -1,37 +1,45 @@
 class BonesController < ApplicationController
 
     def index
-        bones = Bone.all.order(:name)
+        bones = current_user.bones.order(:name)
         render json: bones, status: :ok
     end
 
     def show
-        bone = Bone.find(params[:id])
+        bone = current_user.bones.find(params[:id])
         render json: bone, status: :ok
     end
 
     def create
-        region = Region.find(params[:region_id])
+        region = current_user.regions.find(params[:region_id])
         bone = region.bones.create!(bone_params)
         render json: bone, status: :created
     end
 
     def update
-        bone = Bone.find(params[:id])
+        bone = current_user.bones.find(params[:id])
         bone.update!(bone_params)
         render json: bone, status: :accepted
     end
 
     def destroy
-        bone = Bone.find(params[:id])
+        bone = current_user.bones.find(params[:id])
         bone.destroy
         head :no_content
+    end
+
+    def seed_bones
+        bones = Bone.all
+        bones.each do |bone|
+            current_user.bones << bone
+        end
+        render json: current_user.bones, status: :created
     end
 
     private
 
     def bone_params
-        params.permit(:name, :description, :url, :region_id)
+        params.permit(:name, :description, :url, :region_id, :user_id)
     end
 
 end

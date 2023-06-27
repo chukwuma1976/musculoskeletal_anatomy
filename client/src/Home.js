@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { NavLink } from 'react-router-dom';
+import { UserContext } from './User';
 
 function Home() {
+    const {user} = useContext(UserContext)
+
     return (
         <div className="home-page">
-            <h1 className="title">Welcome to Musculoskeletal Anatomy for Exercise</h1>
+            <h1 className="title">Welcome {user.username} to Musculoskeletal Anatomy for Exercise</h1>
             <h3>Here we take a detailed look at the muscles responsible for motion.</h3>
             <h3>We also look at the skeletal structure responsible for supporting all this muscle.</h3>
             <div className="home-navlink">

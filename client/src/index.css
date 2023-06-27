@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: azure;
 }
 
 code {
@@ -12,7 +13,7 @@ code {
     monospace;
 }
 
-h2 {
+h1, h2, h3 {
   text-align: center;
 }
 
@@ -69,6 +70,23 @@ tr:nth-child(even) {
   margin-bottom: auto;
   background: lightgoldenrodyellow;
 }
+
+.form {
+  text-align: center;
+  width: 400px;
+  height: auto;
+  border: 5px solid blue;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: auto;
+  background: lightgoldenrodyellow;
+}
+.login {
+  text-align: center;
+}
+
 .home-page {
   background: whitesmoke;
   text-align: center;
