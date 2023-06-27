@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddBone({regions, bones, setBones}) {
+function AddBone({regions, bones, setBones, userId}) {
     const [errors, setErrors] = useState(null)
     const [newBone, setNewBone] = useState({
         name: "",
         description: "",
         url: "",
-        region_id: ""
+        region_id: "",
+        user_id: userId
     })
 
     const {name, description, url, region_id} = newBone

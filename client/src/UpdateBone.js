@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';   
 
 function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
-    const [newBone, setNewBone] = useState({description: bone.description, url: bone.url})
+    const [newBone, setNewBone] = useState({name: bone.name, description: bone.description, url: bone.url})
 
-    const {description, url} = newBone
+    const {name, description, url} = newBone
 
     function handleChange(event){
         setNewBone(newBone=>({...newBone, [event.target.name]:event.target.value}))
@@ -27,6 +27,15 @@ function UpdateBone({bone, showPopUp, closePopUp, onUpdate}){
             <button onClick={closePopUp}>close</button>
             <h4>Update {bone.name} by entering the information below</h4>
             <form onSubmit={handleSubmit}>
+                <label>Name </label>
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="name" 
+                    value={name} 
+                    onChange={handleChange} 
+                />
+                <br/>
                 <label>Description </label>
                 <input 
                     type="text" 

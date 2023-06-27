@@ -3,6 +3,7 @@ import { useState } from "react";
 
 function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
     const [newMuscle, setNewMuscle] = useState({
+        name: muscle.name,
         origin: muscle.origin,
         insertion: muscle.insertion,
         actions: muscle.actions,
@@ -10,7 +11,7 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
         blood_supply: muscle.blood_supply,
         url: muscle.url
     })
-    const {origin, insertion, actions, innervation, blood_supply, url} = newMuscle
+    const {name, origin, insertion, actions, innervation, blood_supply, url} = newMuscle
 
     function handleChange(event){
         setNewMuscle(newMuscle=>({...newMuscle, [event.target.name]:event.target.value}))
@@ -33,6 +34,15 @@ function UpdateMuscle({muscle, showPopUp, closePopUp, onUpdate}) {
             <button onClick={closePopUp}>close</button>
             <h4>Update {muscle.name} by entering the changes in one or more parameters below</h4>
             <form onSubmit={handleSubmit}>
+                <label>Name </label>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="name" 
+                        value={name} 
+                        onChange={handleChange} 
+                    />
+                    <br/>
                 <label>Origin </label>
                 <input 
                     type="text" 

@@ -41,13 +41,15 @@ function Musculoskeletal() {
           element={<AddMuscle 
             bodyParts={bodyParts} 
             muscles={muscles} 
-            setMuscles={setMuscles} />} 
+            setMuscles={setMuscles}
+            userId={user.id} />} 
         />
         <Route path="/add_bone" 
           element={<AddBone 
             regions={regions} 
             bones={bones} 
-            setBones={setBones} />} 
+            setBones={setBones} 
+            userId={user.id}/>} 
         />
                 <Route path="/signout" element={<SignOut />} />
       </Routes>

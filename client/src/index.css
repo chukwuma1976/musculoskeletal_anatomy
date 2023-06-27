@@ -93,9 +93,12 @@ tr:nth-child(even) {
 }
 img.thumbnail {
   width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 img.enlarged {
   height: 400px;
+  width: auto
 }
 
 .PopUp{

@@ -1,12 +1,12 @@
 class BodypartsController < ApplicationController
 
     def index
-        bodyparts = Bodypart.all
+        bodyparts = current_user.bodyparts.uniq
         render json: bodyparts, status: :ok
     end
 
     def show
-        bodypart = Bodypart.find(params[:id])
+        bodypart = current_user.bodyparts.find(params[:id])
         render json: bodypart, status: :ok
     end
 

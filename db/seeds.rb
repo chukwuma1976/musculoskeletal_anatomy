@@ -571,6 +571,7 @@ thorax_id = Region.find_by(name: "Thorax").id
 pelvis_id = Region.find_by(name: "Pelvis").id
 upper_extremity_id = Region.find_by(name: "Upper Extremity").id
 lower_extremity_id = Region.find_by(name: "Lower Extremity").id
+miscellaneous_id = Region.find_by(name: "Miscellaneous").id
 
 skull_bones = [
     {
@@ -821,6 +822,30 @@ lower_extremity_bones.each do |bone|
         description: bone[:description],
         url: bone[:url],
         region_id: lower_extremity_id
+    )
+end
+
+miscellaneous_bones = [
+    {
+        name: "Auditory ossicles",
+        description: "They serve to transmit sounds from the air to the fluid-filled labyrinth (cochlea)",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Slide1ghe.JPG/350px-Slide1ghe.JPG",
+        region_id: miscellaneous_id
+      },
+      {
+        name: "Hyoid",
+        description: "a small U-shaped (horseshoe-shaped) solitary bone, situated in the midline of the neck anteriorly at the base of the mandible and posteriorly at the fourth cervical vertebra",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0BXXaBnkeNBVXHorkN7SgegnWNmBZO2vaUQ&usqp=CAU",
+        region_id: miscellaneous_id
+      }
+]
+
+miscellaneous_bones.each do |bone|
+    Bone.create(
+        name: bone[:name],
+        description: bone[:description],
+        url: bone[:url],
+        region_id: miscellaneous_id
     )
 end
 

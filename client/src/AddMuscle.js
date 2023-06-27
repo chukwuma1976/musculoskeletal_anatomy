@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddMuscle({bodyParts, muscles, setMuscles}) {
+function AddMuscle({bodyParts, muscles, setMuscles, userId}) {
     const [errors, setErrors] = useState(null)
     const [newMuscle, setNewMuscle] = useState({
         name: "",
@@ -11,7 +11,8 @@ function AddMuscle({bodyParts, muscles, setMuscles}) {
         innervation: "",
         blood_supply: "",
         url: "",
-        bodypart_id: ""
+        bodypart_id: "",
+        user_id: userId
     })
     const {name, origin, insertion, actions, innervation, blood_supply, url, bodypart_id} = newMuscle
     const navigate = useNavigate()

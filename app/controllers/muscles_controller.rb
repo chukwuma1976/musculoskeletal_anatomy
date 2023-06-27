@@ -11,7 +11,6 @@ class MusclesController < ApplicationController
 
     def create
         bodypart = current_user.bodyparts.find(params[:bodypart_id])
-        byebug
         muscle = bodypart.muscles.create!(muscle_params)
         render json: muscle, status: :created
     end
