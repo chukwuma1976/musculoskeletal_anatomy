@@ -30,13 +30,20 @@ To launch this application:
     git clone git@github.com:chukwuma1976/musculoskeletal_anatomy.git
     cd musculoskeletal_anatomy
 
-    cd musculoskeletal-client //this launches the frontend client
-    npm install
-    npm start
-
-    cd musculoskeletal-server //this launches the backend server
+    cd musculoskeletal-server 
     bundle install
-    rake server
+    rails s //this allows the application to run on a single local server
+
+    To run deployed application: https://musculoskeletal-anatomy.onrender.com/
+
+    make sure PostgreSQL is installed and started
+        sudo apt update
+        sudo apt install postgresql postgresql-contrib libpq-dev
+        psql --version //confirm installation
+        sudo service postgresql start //starts the postgresql server
+        whoami //checks user
+        sudo -u postgres -i
+        createuser -sr <username>    
 
 Link to the demo for this application: https://youtu.be/qwmenLGOq7k
 
