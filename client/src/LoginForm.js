@@ -55,9 +55,7 @@ function LoginForm({onLogin}) {
             {isLoading ? "Loading..." : "Login"}
           </button>
         </form>
-        <p>
-          {errors}          
-        </p>
+        <p className="error">{errors}</p>
       </div>
   )
 }

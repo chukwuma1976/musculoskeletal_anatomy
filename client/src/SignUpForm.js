@@ -66,7 +66,7 @@ function SignUpForm({ onLogin }) {
         />
         <br />
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-        {<p>{errors}</p>}
+        {<p className="error">{errors}</p>}
     </form>
   );
 }

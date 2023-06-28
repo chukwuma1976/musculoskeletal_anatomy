@@ -5,9 +5,6 @@ class UsersController < ApplicationController
     def create
         user = User.create!(user_params)
         if user.valid?
-            # seeding user database with muscles and bones
-            seed_muscles(user)
-            seed_bones(user)
             render json: user, status: :created
             session[:user_id] = user.id
         else
@@ -31,20 +28,6 @@ class UsersController < ApplicationController
 
     def render_not_found(error)
         render json: {errors: "User Not Found"}, status: :render_not_found
-    end
-
-    def seed_muscles(user)
-        muscles = Muscle.all
-        muscles.each do |muscle|
-            user.muscles << muscle
-        end
-    end
-
-    def seed_bones(user)
-        bones = Bone.all
-        bones.each do |bone|
-            user.bones << bone
-        end
     end
 
 end

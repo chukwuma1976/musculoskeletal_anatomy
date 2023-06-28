@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddMuscle({bodyParts, muscles, setMuscles, userId}) {
+function AddMuscle({bodyParts, muscles, setMuscles}) {
     const [errors, setErrors] = useState(null)
     const [newMuscle, setNewMuscle] = useState({
         name: "",
@@ -11,8 +11,7 @@ function AddMuscle({bodyParts, muscles, setMuscles, userId}) {
         innervation: "",
         blood_supply: "",
         url: "",
-        bodypart_id: "",
-        user_id: userId
+        bodypart_id: ""
     })
     const {name, origin, insertion, actions, innervation, blood_supply, url, bodypart_id} = newMuscle
     const navigate = useNavigate()
@@ -44,7 +43,7 @@ function AddMuscle({bodyParts, muscles, setMuscles, userId}) {
     return (
         <div className="add_body_part">
             <h3>Add a muscle by entering the information below</h3>
-            {errors? errors.map(error=><p>{error}</p>): null}
+            {errors? errors.map(error=><p key={error} className="error">{error}</p>): null}
             <form onSubmit={handleSubmit}>
                 <label>Body Part</label>
                 <select name="bodypart_id" onChange={handleChange}>

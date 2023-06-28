@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddBone({regions, bones, setBones, userId}) {
+function AddBone({regions, bones, setBones}) {
     const [errors, setErrors] = useState(null)
     const [newBone, setNewBone] = useState({
         name: "",
         description: "",
         url: "",
-        region_id: "",
-        user_id: userId
+        region_id: ""
     })
 
     const {name, description, url, region_id} = newBone
@@ -41,7 +40,7 @@ function AddBone({regions, bones, setBones, userId}) {
     return (
         <div className="add_body_part">
             <h3>Add a Bone by entering the information below</h3>
-            {errors? errors.map(error=><p>{error}</p>) : null}
+            {errors? errors.map(error=><p key={error} className="error">{error}</p>) : null}
             <form onSubmit={handleSubmit}>
                 <label>Region</label>
                 <select name="region_id" onChange={handleChange}>

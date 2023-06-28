@@ -4,8 +4,5 @@ class User < ApplicationRecord
     has_secure_password
 
     has_many :muscles
-    has_many :bodyparts, through: :muscles
-
     has_many :bones
-    has_many :regions, through: :bones
 end
